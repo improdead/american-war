@@ -27,6 +27,7 @@ const THEME_CARDS = [
   },
 ];
 
+const NARRATION_RATE = 0.95;
 const NARRATION_TEXT =
   "American War follows Sarat Chestnut as climate collapse and civil conflict remake the United States. The novel asks how grief, propaganda, and displacement shape a generation's idea of justice.";
 
@@ -189,7 +190,7 @@ function MediaPanel() {
       return null;
     }
     const utterance = new SpeechSynthesisUtterance(NARRATION_TEXT);
-    utterance.rate = 0.95;
+    utterance.rate = NARRATION_RATE;
     return utterance;
   }, [supportsNarration]);
 
