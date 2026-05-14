@@ -1,0 +1,246 @@
+:root {
+  --navy: #0f2548;
+  --blue: #2f4b84;
+  --cream: #f5f0e4;
+  --paper: #fffaf0;
+  --ink: #1f1c17;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Lora", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, #243b63, #111a2b 70%);
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+}
+
+.scene {
+  width: min(96vw, 1200px);
+  perspective: 2200px;
+  padding: 2rem 1rem;
+}
+
+.hint {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.2em;
+  color: #dce7ff;
+  margin: 0 0 1rem;
+}
+
+.book-shell {
+  display: grid;
+  place-items: center;
+}
+
+.book {
+  width: min(92vw, 900px);
+  aspect-ratio: 16/10;
+  transform-style: preserve-3d;
+  transition: transform 0.85s ease;
+  position: relative;
+}
+
+.book.closed {
+  transform: rotateY(0deg);
+}
+
+.book.open {
+  transform: rotateY(-22deg) translateX(2%);
+}
+
+.cover,
+.spread {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  box-shadow: 0 12px 34px var(--shadow);
+}
+
+.cover {
+  padding: 2.5rem;
+  color: white;
+  font-family: "Playfair Display", serif;
+  background: linear-gradient(135deg, #0a1a36 10%, var(--blue), #14284f 90%);
+  border: 2px solid #35508c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.front-cover {
+  z-index: 20;
+  cursor: pointer;
+  transition: transform 0.85s ease;
+}
+
+.book.open .front-cover {
+  transform: rotateY(-178deg);
+}
+
+.front-cover h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  margin: 0;
+}
+
+.cover-image {
+  width: min(220px, 42%);
+  align-self: flex-end;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+.author {
+  letter-spacing: 0.2em;
+  font-size: 0.9rem;
+}
+
+.wire {
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  top: 10%;
+  height: 80%;
+  border-top: 2px dashed rgba(220, 230, 255, 0.7);
+  border-bottom: 2px dashed rgba(220, 230, 255, 0.7);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.back-cover {
+  z-index: 1;
+  background: linear-gradient(125deg, #14284f, #0b1730 75%);
+  justify-content: flex-start;
+}
+
+.spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--cream);
+  z-index: 2;
+  transition: transform 0.85s ease;
+}
+
+.spread.flipped {
+  transform: rotateY(-178deg);
+  z-index: 0;
+}
+
+.page {
+  padding: 1.2rem 1.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: var(--paper);
+  position: relative;
+  overflow: auto;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.015),
+    rgba(0, 0, 0, 0.015) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+  pointer-events: none;
+}
+
+.page h2,
+.page h3,
+.page h4 {
+  margin-top: 0;
+  font-family: "Playfair Display", serif;
+}
+
+.subtitle,
+.publisher,
+.page-number {
+  color: #655;
+  font-size: 0.9rem;
+}
+
+.page img {
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 0.75rem;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.page ol,
+.page ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.page ol li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0.1rem 0.45rem 0 0;
+  font-family: "Playfair Display", serif;
+}
+
+.media-block {
+  margin-bottom: 0.85rem;
+}
+
+.media-block button {
+  margin-right: 0.4rem;
+  margin-top: 0.3rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #2c3b62;
+  border-radius: 5px;
+  background: #1e2d52;
+  color: #f4f8ff;
+  font-family: "Lora", serif;
+  cursor: pointer;
+}
+
+.citations li {
+  margin-bottom: 0.45rem;
+  font-size: 0.88rem;
+}
+
+.publisher-mark {
+  margin-top: auto;
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 980px) {
+  .book {
+    aspect-ratio: 2/3;
+  }
+
+  .spread {
+    grid-template-columns: 1fr;
+  }
+
+  .page-right {
+    display: none;
+  }
+}
