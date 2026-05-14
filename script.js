@@ -285,7 +285,7 @@ function MediaPanel() {
         e("em", null, "American War"),
         ". Vintage, 2018 (paperback edition; originally published 2017)."
       ),
-      e("li", null, "Primary cover image provided by user, with local illustrated fallback cover."),
+      e("li", null, "Cover art rendered from the local illustrated asset in the project."),
       e("li", null, "Penguin Random House author and book pages."),
       e("li", null, "Unsplash images by licensed contributors."),
       e("li", null, "New York Times review for critical context.")
