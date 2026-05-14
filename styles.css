@@ -209,15 +209,16 @@ body {
   margin-bottom: 0.85rem;
 }
 
-audio,
-iframe {
-  width: 100%;
-  border: 0;
-  border-radius: 6px;
-}
-
-iframe {
-  min-height: 160px;
+.media-block button {
+  margin-right: 0.4rem;
+  margin-top: 0.3rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #2c3b62;
+  border-radius: 5px;
+  background: #1e2d52;
+  color: #f4f8ff;
+  font-family: "Lora", serif;
+  cursor: pointer;
 }
 
 .citations li {

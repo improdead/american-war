@@ -4,6 +4,8 @@ const shell = document.getElementById("bookShell");
 const spreads = Array.from(book.querySelectorAll(".spread"));
 const frontCover = book.querySelector(".front-cover");
 const INTERACTIVE_ELEMENTS_SELECTOR = "a, audio, iframe, button, input, textarea, select";
+const playNarrationButton = document.getElementById("playNarration");
+const stopNarrationButton = document.getElementById("stopNarration");
 
 let isOpen = false;
 let index = 0;
@@ -95,6 +97,21 @@ window.addEventListener("mousemove", (event) => {
   const rotationX = (event.clientY / window.innerHeight - 0.5) * -4;
   shell.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 });
+
+if (playNarrationButton && stopNarrationButton && "speechSynthesis" in window) {
+  const narration = new SpeechSynthesisUtterance(
+    "American War explores climate collapse, displacement, and generational trauma through Sarat Chestnut's transformation during a second American civil war."
+  );
+
+  playNarrationButton.addEventListener("click", () => {
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(narration);
+  });
+
+  stopNarrationButton.addEventListener("click", () => {
+    window.speechSynthesis.cancel();
+  });
+}
 
 book.classList.add("closed");
 updateHint();
