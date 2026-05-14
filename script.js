@@ -3,7 +3,7 @@ const hint = document.getElementById("hintText");
 const shell = document.getElementById("bookShell");
 const spreads = Array.from(book.querySelectorAll(".spread"));
 const frontCover = book.querySelector(".front-cover");
-const interactiveElementsSelector = "a, audio, iframe, button, input, textarea, select";
+const INTERACTIVE_ELEMENTS_SELECTOR = "a, audio, iframe, button, input, textarea, select";
 
 let isOpen = false;
 let index = 0;
@@ -65,7 +65,7 @@ book.addEventListener("click", (event) => {
   if (!isOpen || event.target.closest(".front-cover")) {
     return;
   }
-  if (event.target.closest(interactiveElementsSelector)) {
+  if (event.target.closest(INTERACTIVE_ELEMENTS_SELECTOR)) {
     return;
   }
 
@@ -91,9 +91,9 @@ window.addEventListener("mousemove", (event) => {
     return;
   }
 
-  const x = (event.clientX / window.innerWidth - 0.5) * 6;
-  const y = (event.clientY / window.innerHeight - 0.5) * -4;
-  shell.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
+  const rotationY = (event.clientX / window.innerWidth - 0.5) * 6;
+  const rotationX = (event.clientY / window.innerHeight - 0.5) * -4;
+  shell.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 });
 
 book.classList.add("closed");
