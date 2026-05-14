@@ -194,10 +194,12 @@ function MediaPanel() {
     return utterance;
   }, [supportsNarration]);
 
-  useEffect(() => () => {
-    if (supportsNarration) {
-      window.speechSynthesis.cancel();
-    }
+  useEffect(() => {
+    return () => {
+      if (supportsNarration) {
+        window.speechSynthesis.cancel();
+      }
+    };
   }, [supportsNarration]);
 
   const handlePlay = () => {
