@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>American War | Interactive Book</title>
+    <title>American War | Desk Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,382 +13,531 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="ambient" aria-hidden="true"></div>
-    <main class="scene">
-      <p class="hint" id="hintText">CLICK TO OPEN</p>
+    <div class="zoom-bar" role="toolbar" aria-label="Zoom book">
+      <button type="button" id="zoomOut" aria-label="Zoom out">−</button>
+      <span id="zoomLabel">100%</span>
+      <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+      <button type="button" id="zoomReset">Reset</button>
+    </div>
 
-      <section class="book-shell" id="bookShell" aria-label="Interactive American War book">
-        <article class="book" id="book">
-          <section class="cover front-cover" aria-label="Front cover">
-            <div class="spine-face" aria-hidden="true">
-              <span class="spine-title">AMERICAN WAR</span>
-              <span class="spine-author">Omar El Akkad</span>
-            </div>
-            <div class="cover-face">
-              <img
-                class="cover-image"
-                src="https://covers.openlibrary.org/b/isbn/9780451493583-L.jpg"
-                data-fallback="assets/american-war-cover.svg"
-                alt="Official cover art for American War: black field, pale blue barbed wire, white typography"
-                width="600"
-                height="900"
-                decoding="async"
-              />
-              <div class="cover-sheen" aria-hidden="true"></div>
-            </div>
-            <div class="cover-edge" aria-hidden="true"></div>
-          </section>
+    <div class="desk">
+      <p class="desk-instruction" id="hintText">Click the cover to open</p>
+      <p class="page-indicator" id="pageIndicator" aria-live="polite"></p>
 
-          <section class="spread">
-            <section class="page page-left" data-side="left">
-              <h2>AMERICAN WAR</h2>
-              <p class="subtitle">A Novel</p>
-              <p class="publisher">Alfred A. Knopf · New York</p>
-              <p class="lede">
-                This interactive edition gathers summary, thesis-level analysis, author context,
-                character introductions with cited archival imagery, audiovisual material, and a
-                complete MLA (9th ed.) works cited list.
-              </p>
-            </section>
-            <section class="page page-right" data-side="right">
-              <h3>Contents</h3>
-              <ol class="toc">
-                <li><span>Summary &amp; setting</span><span>1</span></li>
-                <li><span>Thesis &amp; subtopics</span><span>2</span></li>
-                <li><span>Author &amp; characters</span><span>3</span></li>
-                <li><span>Media, links, works cited</span><span>4</span></li>
-              </ol>
-            </section>
-          </section>
+      <div class="book-scaler" id="bookScaler">
+        <section class="scene">
+          <div class="book-shell" id="bookShell">
+            <article class="book closed" id="book">
+              <section class="cover front-cover" aria-label="Front cover">
+                <div class="spine-face" aria-hidden="true">
+                  <span class="spine-text">American War</span>
+                  <span class="spine-text spine-text--author">Omar El Akkad</span>
+                  <span class="spine-text spine-text--pub">Knopf</span>
+                </div>
+                <div class="cover-art">
+                  <div class="cover-texture" aria-hidden="true"></div>
+                  <svg class="cover-wires" viewBox="0 0 400 640" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="wgrad" x1="0" x2="1" y1="0" y2="0.05">
+                        <stop offset="0" stop-color="#5a8daa" stop-opacity="0.2" />
+                        <stop offset="0.5" stop-color="#9ecbe6" />
+                        <stop offset="1" stop-color="#5a8daa" stop-opacity="0.2" />
+                      </linearGradient>
+                    </defs>
+                    <g stroke="url(#wgrad)" stroke-width="1.15" fill="none" stroke-linecap="round">
+                      <path d="M-30 118 L430 88" stroke-dasharray="1 7 3 7" />
+                      <path d="M-30 198 L430 168" stroke-dasharray="1 6 3 6" />
+                      <path d="M-30 278 L430 248" stroke-dasharray="1 7 3 7" />
+                      <path d="M-30 358 L430 328" stroke-dasharray="1 6 3 6" />
+                      <path d="M-30 438 L430 408" stroke-dasharray="1 7 3 7" />
+                      <path d="M-30 518 L430 488" stroke-dasharray="1 6 3 6" />
+                    </g>
+                  </svg>
+                  <div class="cover-type">
+                    <h1>AMERICAN<br />WAR</h1>
+                    <p class="novel-tag">A Novel</p>
+                    <div class="gold-rule" aria-hidden="true"></div>
+                    <p class="cover-author">Omar El Akkad</p>
+                  </div>
+                </div>
+                <div class="cover-edge" aria-hidden="true"></div>
+              </section>
 
-          <section class="spread">
-            <section class="page page-left" data-side="left">
-              <h3>Summary</h3>
-              <p class="dropcap">
-                Set in a future United States fractured by climate disaster and a second civil war,
-                <em>American War</em> follows Sarat Chestnut from childhood in a drowning Louisiana
-                to years inside a displaced-persons camp, where grief and propaganda reshape her into
-                a living emblem of revenge. El Akkad borrows textures from real occupations,
-                checkpoints, and drone warfare so the novel reads like reportage that has crossed
-                into prophecy.
-              </p>
-              <figure class="inline-figure">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/2016_Louisiana_Flood_-_10.jpg/960px-2016_Louisiana_Flood_-_10.jpg"
-                  alt="Aerial view of vehicles submerged in brown floodwater during the 2016 Louisiana floods"
-                  width="960"
-                  height="640"
-                  loading="lazy"
-                />
-                <figcaption>
-                  The 2016 Louisiana floods echo the novel’s drowned South—representational setting
-                  imagery, not a scene from the text.
-                </figcaption>
-              </figure>
-            </section>
-            <section class="page page-right" data-side="right">
-              <h3>Story &amp; stakes</h3>
-              <blockquote class="pullquote">
-                “He had taught her long ago that when your country asks you to kill for it, your
-                only question should be how high.”
-              </blockquote>
-              <p>
-                Sarat’s arc asks how a child becomes a weapon, and whether any society that trades
-                empathy for security can expect anything but cyclical violence. The novel refuses
-                easy villains: every faction speaks the language of survival.
-              </p>
-              <figure class="inline-figure tight">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Refugee_camp_-_Flickr_-_Al_Jazeera_English.jpg/960px-Refugee_camp_-_Flickr_-_Al_Jazeera_English.jpg"
-                  alt="Rows of tents stretching across dry land in a refugee camp"
-                  width="960"
-                  height="540"
-                  loading="lazy"
-                />
-                <figcaption>
-                  Camp architecture from global displacement crises informs readings of Camp
-                  Patience—again, thematic context rather than a literal illustration of the novel’s
-                  sets.
-                </figcaption>
-              </figure>
-            </section>
-          </section>
+              <!-- 12 spreads = 24 pages -->
+              <section class="spread" data-spread="0">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h2>American War</h2>
+                    <span class="page-num">i</span>
+                  </div>
+                  <p class="subtitle">A Novel · Omar El Akkad</p>
+                  <p class="publisher">Alfred A. Knopf · New York · 2017</p>
+                  <p class="lede">
+                    Desk edition: twelve spreads of summary, analysis, character study, media, and
+                    MLA 9 works cited—organized for clarity, zoomable for reading aloud in class.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Contents</h3>
+                    <span class="page-num">ii</span>
+                  </div>
+                  <ol class="toc">
+                    <li>Opening &amp; table of contents</li>
+                    <li>Summary &amp; imagined setting</li>
+                    <li>Plot pressure &amp; moral stakes</li>
+                    <li>Climate collapse &amp; remote war</li>
+                    <li>Camps &amp; cycles of revenge</li>
+                    <li>Thesis &amp; essay subtopics</li>
+                    <li>Author biography &amp; portrait</li>
+                    <li>Sarat &amp; Benjamin Chestnut</li>
+                    <li>Martina &amp; Albert Gaines</li>
+                    <li>Motifs &amp; discussion prompts</li>
+                    <li>Video, audio, curated links</li>
+                    <li>Works cited (MLA 9)</li>
+                  </ol>
+                </section>
+              </section>
 
-          <section class="spread">
-            <section class="page page-left" data-side="left">
-              <h3>Main ideas from the essay angle</h3>
-              <ul class="ideas">
-                <li>
-                  <strong>Thesis:</strong> When trauma is left untended, war reproduces itself
-                  across generations.
-                </li>
-                <li>
-                  <strong>Subtopic 1:</strong> Climate inequality collapses civic trust before a
-                  single shot is fired.
-                </li>
-                <li>
-                  <strong>Subtopic 2:</strong> Encampment life converts boredom and scarcity into
-                  radicalization pipelines.
-                </li>
-                <li>
-                  <strong>Subtopic 3:</strong> Memory becomes either ethical witness or tactical
-                  payload, depending on who controls the archive.
-                </li>
-              </ul>
-              <p>
-                The speculative frame is not escapism: it compresses timelines so readers feel how
-                quickly “unthinkable” policies can normalize when fear is monetized.
-              </p>
-            </section>
-            <section class="page page-right" data-side="right">
-              <h3>About the author</h3>
-              <p>
-                Omar El Akkad is an Egyptian-Canadian novelist and journalist whose reporting from
-                conflict zones informs the granular sensory detail of <em>American War</em>. His
-                public talks stress that the novel’s horrors are recombinations of documented
-                realities moved across geography and time.
-              </p>
-              <figure class="inline-figure author-shot">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Omar_El_Akkad_1030700.jpg/960px-Omar_El_Akkad_1030700.jpg"
-                  alt="Omar El Akkad seated with a microphone during a reading"
-                  width="960"
-                  height="720"
-                  loading="lazy"
-                />
-                <figcaption>
-                  El Akkad at a 2025 reading hosted by the Lannan Center—this is a real photograph of
-                  the author (not a fictional character).
-                </figcaption>
-              </figure>
-            </section>
-          </section>
+              <section class="spread" data-spread="1">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Summary</h3>
+                    <span class="page-num">1</span>
+                  </div>
+                  <p class="dropcap">
+                    In a splintered United States gutted by climate failure and a second civil war,
+                    <em>American War</em> tracks Sarat Chestnut from a half-drowned Louisiana
+                    childhood into the disciplined cruelty of Camp Patience—and beyond, into the
+                    mythology of retribution.
+                  </p>
+                  <p>
+                    El Akkad treats speculative fiction as a forensic lens: every drone shadow and
+                    ration line is stitched from real histories displaced onto American geography.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Setting &amp; timeline</h3>
+                    <span class="page-num">2</span>
+                  </div>
+                  <p>
+                    Fossil-fuel bans, coastal loss, and secessionist violence braid together until
+                    “security” becomes a word families mouth while packing go-bags.
+                  </p>
+                  <figure class="inline-figure">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/2016_Louisiana_Flood_-_10.jpg/960px-2016_Louisiana_Flood_-_10.jpg"
+                      alt="Aerial view of Louisiana floodwater surrounding submerged vehicles"
+                      loading="lazy"
+                    />
+                    <figcaption>
+                      2016 Louisiana floods—cited thematic parallel, not a literal storyboard frame.
+                    </figcaption>
+                  </figure>
+                </section>
+              </section>
 
-          <section class="spread">
-            <section class="page page-left" data-side="left">
-              <h3>Character compass</h3>
-              <p class="fineprint">
-                These figures are fictional; there are no studio headshots of them. Each panel pairs
-                a scholarly introduction with a <strong>representational</strong>, fully cited
-                photograph from public archives so you can discuss appearance, power, and gaze
-                responsibly in class.
-              </p>
-              <div class="character-grid">
-                <figure class="character-card">
-                  <div class="character-photo">
+              <section class="spread" data-spread="2">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Plot &amp; pressure</h3>
+                    <span class="page-num">3</span>
+                  </div>
+                  <p>
+                    Each relocation tightens the Chestnuts’ choices: stay lawful, stay human, or
+                    accept the camp’s arithmetic that pain must be banked until it can be spent.
+                  </p>
+                  <p>
+                    Sarat’s mentors speak softly because they know volume is unnecessary when a
+                    child is already listening for orders.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Moral stakes</h3>
+                    <span class="page-num">4</span>
+                  </div>
+                  <blockquote class="pullquote">
+                    “He had taught her long ago that when your country asks you to kill for it, your
+                    only question should be how high.”
+                  </blockquote>
+                  <p>
+                    The novel asks whether revenge can ever be hygienic once it becomes a civic
+                    style—something citizens rehearse in language before they rehearse it in blood.
+                  </p>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="3">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Climate &amp; inequality</h3>
+                    <span class="page-num">5</span>
+                  </div>
+                  <p>
+                    Climate grief is not backdrop; it is plot. Who owns high ground, who inherits
+                    mold and asthma, who pays for seawalls with their tax bills or their lungs—these
+                    questions decide which maps get redrawn first.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Remote war</h3>
+                    <span class="page-num">6</span>
+                  </div>
+                  <p>
+                    Drones, checkpoints, and rumor networks translate occupation grammar into a
+                    domestic key. Readers recognize the choreography even when the zip code is
+                    fictional.
+                  </p>
+                  <figure class="inline-figure">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Refugee_camp_-_Flickr_-_Al_Jazeera_English.jpg/960px-Refugee_camp_-_Flickr_-_Al_Jazeera_English.jpg"
+                      alt="Rows of tents in a refugee camp"
+                      loading="lazy"
+                    />
+                    <figcaption>
+                      Displacement infrastructure—context for reading Camp Patience’s logistics.
+                    </figcaption>
+                  </figure>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="4">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Camp Patience</h3>
+                    <span class="page-num">7</span>
+                  </div>
+                  <p>
+                    Camps compress time: boredom becomes radicalization fuel; charity becomes
+                    surveillance; kindness becomes a ledger. Sarat learns to read power because she
+                    cannot stop staring at it.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Revenge cycles</h3>
+                    <span class="page-num">8</span>
+                  </div>
+                  <p>
+                    The novel’s ethical spine is simple to state and brutal to practice: every act
+                    of violence mortgages the next generation’s peace. Trauma unprocessed becomes
+                    policy.
+                  </p>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="5">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Thesis</h3>
+                    <span class="page-num">9</span>
+                  </div>
+                  <p>
+                    <strong>Thesis:</strong> When societies choose vengeance over repair, war
+                    becomes a literacy taught at kitchen tables long before it is taught in training
+                    yards.
+                  </p>
+                  <p>
+                    Your essay can defend, complicate, or historicize that claim using evidence from
+                    Sarat’s arc and from El Akkad’s interviews about journalistic method.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Essay subtopics</h3>
+                    <span class="page-num">10</span>
+                  </div>
+                  <ul class="ideas">
+                    <li><strong>Ecology:</strong> who pays first when the grid wobbles?</li>
+                    <li><strong>Encampment politics:</strong> boredom, rumor, patronage.</li>
+                    <li><strong>Archives of pain:</strong> testimony as weapon or witness.</li>
+                    <li><strong>Genre:</strong> speculative realism vs. dystopian comfort food.</li>
+                  </ul>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="6">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>About the author</h3>
+                    <span class="page-num">11</span>
+                  </div>
+                  <p>
+                    Omar El Akkad is an Egyptian-Canadian novelist and journalist. His reporting
+                    from conflict zones informs the tactile credibility of <em>American War</em>—the
+                    way bodies orient in heat, how checkpoints smell, how official language
+                    softens murder.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Portrait</h3>
+                    <span class="page-num">12</span>
+                  </div>
+                  <figure class="inline-figure">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Omar_El_Akkad_1030700.jpg/960px-Omar_El_Akkad_1030700.jpg"
+                      alt="Omar El Akkad at a microphone during a reading"
+                      loading="lazy"
+                    />
+                    <figcaption>
+                      Frypie, Wikimedia Commons (CC BY-SA 4.0)—actual photograph of the author.
+                    </figcaption>
+                  </figure>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="7">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Sarat Chestnut</h3>
+                    <span class="page-num">13</span>
+                  </div>
+                  <p class="fineprint">
+                    Fictional character—archival portrait below is representational, not biographical.
+                  </p>
+                  <figure class="inline-figure">
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/African_American_girl%2C_head-and-shoulders_portrait%2C_facing_front_LCCN98517075.jpg/960px-African_American_girl%2C_head-and-shoulders_portrait%2C_facing_front_LCCN98517075.jpg"
-                      alt="Archival head-and-shoulders portrait of a young African American girl"
-                      width="960"
-                      height="1196"
+                      alt="Historical Library of Congress portrait of a young African American girl"
                       loading="lazy"
                     />
+                    <figcaption>Library of Congress, Prints &amp; Photographs Division.</figcaption>
+                  </figure>
+                  <p>
+                    Protagonist: fierce curiosity weaponized by mentors; her arc tests how empathy
+                    survives propaganda.
+                  </p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Benjamin Chestnut</h3>
+                    <span class="page-num">14</span>
                   </div>
-                  <figcaption>
-                    <strong>Sarat Chestnut</strong>
-                    <span class="role">Protagonist</span>
-                    <p>
-                      Brilliant, furious witness to war’s ordinary math. Her curiosity is weaponized
-                      by mentors who recast pain as purpose.
-                    </p>
-                  </figcaption>
-                </figure>
-                <figure class="character-card">
-                  <div class="character-photo">
+                  <figure class="inline-figure">
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/African_American_boy%2C_head-and-shoulders_portrait%2C_facing_front_LCCN99472057.jpg/960px-African_American_boy%2C_head-and-shoulders_portrait%2C_facing_front_LCCN99472057.jpg"
-                      alt="Archival head-and-shoulders portrait of a young African American boy"
-                      width="960"
-                      height="1196"
+                      alt="Historical Library of Congress portrait of a young African American boy"
                       loading="lazy"
                     />
+                    <figcaption>Library of Congress, Prints &amp; Photographs Division.</figcaption>
+                  </figure>
+                  <p>
+                    Brother and foil: carries the family’s hope for repair; throws Sarat’s choices
+                    into relief.
+                  </p>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="8">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Martina Chestnut</h3>
+                    <span class="page-num">15</span>
                   </div>
-                  <figcaption>
-                    <strong>Benjamin Chestnut</strong>
-                    <span class="role">Brother / foil</span>
-                    <p>
-                      Carries the family’s hope for repair; his path throws Sarat’s radicalization
-                      into sharper relief.
-                    </p>
-                  </figcaption>
-                </figure>
-                <figure class="character-card">
-                  <div class="character-photo">
+                  <figure class="inline-figure">
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/African_American_woman%2C_head-and-shoulders_portrait%2C_facing_left_LCCN99472110.jpg/960px-African_American_woman%2C_head-and-shoulders_portrait%2C_facing_left_LCCN99472110.jpg"
-                      alt="Archival head-and-shoulders portrait of an African American woman"
-                      width="960"
-                      height="1196"
+                      alt="Historical Library of Congress portrait of an African American woman"
                       loading="lazy"
                     />
+                    <figcaption>Library of Congress, Prints &amp; Photographs Division.</figcaption>
+                  </figure>
+                  <p>Mother: survival ethics under collapse; grief reshapes her boundaries.</p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Albert Gaines</h3>
+                    <span class="page-num">16</span>
                   </div>
-                  <figcaption>
-                    <strong>Martina Chestnut</strong>
-                    <span class="role">Mother</span>
-                    <p>
-                      Anchors the family’s survival ethics until loss hollows her defenses, opening
-                      space for fatalistic choices.
-                    </p>
-                  </figcaption>
-                </figure>
-                <figure class="character-card">
-                  <div class="character-photo">
+                  <figure class="inline-figure">
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Portrait_of_African_American_man%2C_seated_LCCN2006688030.jpg/960px-Portrait_of_African_American_man%2C_seated_LCCN2006688030.jpg"
-                      alt="Archival seated portrait of an African American man in formal attire"
-                      width="960"
-                      height="1196"
+                      alt="Historical Library of Congress portrait of a seated African American man"
                       loading="lazy"
                     />
+                    <figcaption>Library of Congress, Prints &amp; Photographs Division.</figcaption>
+                  </figure>
+                  <p>Mentor figure: knowledge offered as care—and as leverage.</p>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="9">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Motifs to trace</h3>
+                    <span class="page-num">17</span>
                   </div>
-                  <figcaption>
-                    <strong>Albert Gaines</strong>
-                    <span class="role">Mentor / antagonist pressure</span>
+                  <ul class="ideas">
+                    <li>Water: drowning, baptism, washing evidence away.</li>
+                    <li>Animals &amp; augury: omens vs. superstition vs. realism.</li>
+                    <li>Documents: letters, orders, rumors—who gets to archive truth?</li>
+                    <li>Bodies: injury as text other characters misread on purpose.</li>
+                  </ul>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Discussion prompts</h3>
+                    <span class="page-num">18</span>
+                  </div>
+                  <p>Where does the novel refuse reader comfort on purpose?</p>
+                  <p>Who is allowed moral complexity, and who gets flattened into symbol?</p>
+                  <p>Which real-world policies rhyme with El Akkad’s future laws?</p>
+                  <p>How would you rewrite the ending for mercy without sentimentality?</p>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="10">
+                <section class="page page-left">
+                  <div class="page-header">
+                    <h3>Publisher video</h3>
+                    <span class="page-num">19</span>
+                  </div>
+                  <div class="video-frame">
+                    <iframe
+                      src="https://www.youtube.com/embed/Fh-XLSWsrrc"
+                      title="Knopf Doubleday: American War — Omar El Akkad"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                  <p class="fineprint">Use for class context; cite in Works Cited.</p>
+                </section>
+                <section class="page page-right">
+                  <div class="page-header">
+                    <h3>Audio &amp; links</h3>
+                    <span class="page-num">20</span>
+                  </div>
+                  <div class="media-block">
+                    <p>Placeholder narration (replace with your recorded voice for full credit).</p>
+                    <button type="button" id="playNarration">Play</button>
+                    <button type="button" id="stopNarration">Stop</button>
+                  </div>
+                  <ul class="link-list">
+                    <li>
+                      <a href="https://www.penguinrandomhouse.com/books/241836/american-war-by-omar-el-akkad/" target="_blank" rel="noreferrer">Publisher</a>
+                    </li>
+                    <li>
+                      <a href="https://www.omarelakkad.com/" target="_blank" rel="noreferrer">Author</a>
+                    </li>
+                    <li>
+                      <a href="https://www.npr.org/2017/04/02/522194002/american-war-explores-the-universality-of-revenge" target="_blank" rel="noreferrer">NPR interview</a>
+                    </li>
+                    <li>
+                      <a href="https://www.washingtonpost.com/entertainment/books/american-war-follows-todays-vitriol-to-a-dystopian-future/2017/04/03/79ac6952-186d-11e7-bcc2-7d1a0973e7b2_story.html" target="_blank" rel="noreferrer"><em>Washington Post</em> review</a>
+                    </li>
+                    <li>
+                      <a href="https://openlibrary.org/isbn/9780451493583" target="_blank" rel="noreferrer">Open Library</a>
+                    </li>
+                  </ul>
+                </section>
+              </section>
+
+              <section class="spread" data-spread="11">
+                <section class="page page-left works-page">
+                  <div class="page-header">
+                    <h3>Works Cited <span class="mla-tag">MLA 9</span></h3>
+                    <span class="page-num">21</span>
+                  </div>
+                  <div class="mla-works-cited">
                     <p>
-                      A patient strategist who feeds Sarat forbidden knowledge; he embodies how
-                      tenderness and manipulation can share a vocabulary.
+                      “African American Boy, Head-and-Shoulders Portrait, Facing Front.”
+                      <em>Prints &amp; Photographs Division</em>, Library of Congress, Washington,
+                      www.loc.gov/pictures/item/99472057/.
                     </p>
-                  </figcaption>
-                </figure>
-              </div>
-            </section>
-            <section class="page page-right" data-side="right">
-              <h3>Media &amp; related material</h3>
-              <div class="video-frame">
-                <iframe
-                  src="https://www.youtube.com/embed/Fh-XLSWsrrc"
-                  title="Knopf Doubleday: American War — Omar El Akkad"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <p class="video-caption">
-                Publisher-produced reflection on how journalism shaped the novel’s research
-                ethics—useful audio-visual evidence for presentations.
-              </p>
-              <div class="media-block">
-                <p>Listen: synthesized narration of this site’s thesis (your voice should replace this for full credit).</p>
-                <button type="button" id="playNarration">Play narration</button>
-                <button type="button" id="stopNarration">Stop narration</button>
-              </div>
-              <h4>Curated links</h4>
-              <ul class="link-list">
-                <li>
-                  <a href="https://www.penguinrandomhouse.com/books/241836/american-war-by-omar-el-akkad/" target="_blank" rel="noreferrer">Publisher hub (Penguin Random House)</a>
-                </li>
-                <li>
-                  <a href="https://www.omarelakkad.com/" target="_blank" rel="noreferrer">Author website</a>
-                </li>
-                <li>
-                  <a href="https://www.npr.org/2017/04/02/522194002/american-war-explores-the-universality-of-revenge" target="_blank" rel="noreferrer">NPR interview (audio + transcript)</a>
-                </li>
-                <li>
-                  <a href="https://www.washingtonpost.com/entertainment/books/american-war-follows-todays-vitriol-to-a-dystopian-future/2017/04/03/79ac6952-186d-11e7-bcc2-7d1a0973e7b2_story.html" target="_blank" rel="noreferrer">Washington Post review</a>
-                </li>
-                <li>
-                  <a href="https://openlibrary.org/isbn/9780451493583" target="_blank" rel="noreferrer">Open Library record (ISBN metadata)</a>
-                </li>
-              </ul>
-            </section>
-          </section>
+                    <p>
+                      “African American Girl, Head-and-Shoulders Portrait, Facing Front.”
+                      <em>Prints &amp; Photographs Division</em>, Library of Congress, Washington,
+                      www.loc.gov/pictures/item/98517075/.
+                    </p>
+                    <p>
+                      “African American Woman, Head-and-Shoulders Portrait, Facing Left.”
+                      <em>Prints &amp; Photographs Division</em>, Library of Congress, Washington,
+                      www.loc.gov/pictures/item/99472110/.
+                    </p>
+                    <p>
+                      Al Jazeera English. <em>Refugee Camp</em>. <em>Wikimedia Commons</em>,
+                      commons.wikimedia.org/wiki/File:Refugee_camp_-_Flickr_-_Al_Jazeera_English.jpg.
+                      CC BY-SA 2.0.
+                    </p>
+                    <p>
+                      <em>American War</em> Cover Image, ISBN 9780451493583. <em>Open Library /
+                      Internet Archive</em>, covers.openlibrary.org/b/isbn/9780451493583-L.jpg.
+                      Accessed 15 May 2026.
+                    </p>
+                    <p>
+                      “American War by Omar El Akkad.” <em>Penguin Random House</em>,
+                      www.penguinrandomhouse.com/books/241836/american-war-by-omar-el-akkad/.
+                      Accessed 15 May 2026.
+                    </p>
+                    <p>
+                      Charles, Ron. “‘American War’ Follows Today’s Vitriol to a Dystopian Future.”
+                      <em>Washington Post</em>, 3 Apr. 2017,
+                      www.washingtonpost.com/entertainment/books/american-war-follows-todays-vitriol-to-a-dystopian-future/2017/04/03/79ac6952-186d-11e7-bcc2-7d1a0973e7b2_story.html.
+                    </p>
+                  </div>
+                </section>
+                <section class="page page-right works-page">
+                  <div class="page-header">
+                    <h3>Works Cited <span class="mla-tag">cont.</span></h3>
+                    <span class="page-num">22</span>
+                  </div>
+                  <div class="mla-works-cited">
+                    <p>El Akkad, Omar. <em>American War</em>. Alfred A. Knopf, 2017.</p>
+                    <p>
+                      Frypie. <em>Omar El Akkad 1030700</em>. 27 Mar. 2025. <em>Wikimedia Commons</em>,
+                      commons.wikimedia.org/wiki/File:Omar_El_Akkad_1030700.jpg. CC BY-SA 4.0.
+                    </p>
+                    <p>
+                      García-Navarro, Lulu, host. “Interview: Omar El Akkad, Author of
+                      <em>American War</em>.” <em>Weekend Edition Sunday</em>, NPR, 2 Apr. 2017,
+                      www.npr.org/2017/04/02/522194002/american-war-explores-the-universality-of-revenge.
+                    </p>
+                    <p>
+                      jetheriot. <em>2016 Louisiana Flood – 10</em>. 2016. <em>Wikimedia Commons</em>,
+                      commons.wikimedia.org/wiki/File:2016_Louisiana_Flood_-_10.jpg. CC BY 2.0.
+                    </p>
+                    <p>
+                      <em>Knopf Doubleday: American War — Omar El Akkad</em>. <em>YouTube</em>,
+                      uploaded by Knopf Doubleday, 2017, www.youtube.com/watch?v=Fh-XLSWsrrc.
+                    </p>
+                    <p>
+                      “Portrait of African American Man, Seated.” <em>Prints &amp; Photographs
+                      Division</em>, Library of Congress, Washington, www.loc.gov/pictures/item/2006688030/.
+                    </p>
+                  </div>
+                  <h4>Image ethics</h4>
+                  <p class="fineprint">
+                    LOC portraits are historical documents used here only as cited, interpretive
+                    prompts—not as literal casting of fictional characters.
+                  </p>
+                </section>
+              </section>
 
-          <section class="spread">
-            <section class="page page-left works-page" data-side="left">
-              <h3>Works Cited <span class="mla-tag">MLA 9th ed.</span></h3>
-              <div class="mla-works-cited">
+              <section class="cover back-cover" aria-label="Back cover">
+                <h2>Omar El Akkad</h2>
                 <p>
-                  “African American Boy, Head-and-Shoulders Portrait, Facing Front.” <em>Prints &amp;
-                  Photographs Division</em>, Library of Congress, Washington, www.loc.gov/pictures/item/99472057/.
+                  <strong>American War</strong> asks what happens when a society forgets how to
+                  imagine the enemy as a neighbor. This desk edition keeps citations adjacent to the
+                  imagery they explain.
                 </p>
-                <p>
-                  “African American Girl, Head-and-Shoulders Portrait, Facing Front.” <em>Prints &amp;
-                  Photographs Division</em>, Library of Congress, Washington, www.loc.gov/pictures/item/98517075/.
-                </p>
-                <p>
-                  “African American Woman, Head-and-Shoulders Portrait, Facing Left.” <em>Prints &amp;
-                  Photographs Division</em>, Library of Congress, Washington, www.loc.gov/pictures/item/99472110/.
-                </p>
-                <p>
-                  Al Jazeera English. <em>Refugee Camp</em>. <em>Wikimedia Commons</em>,
-                  commons.wikimedia.org/wiki/File:Refugee_camp_-_Flickr_-_Al_Jazeera_English.jpg. CC
-                  BY-SA 2.0.
-                </p>
-                <p>
-                  <em>American War</em> Cover Image, ISBN 9780451493583. <em>Open Library / Internet
-                  Archive</em>, covers.openlibrary.org/b/isbn/9780451493583-L.jpg. Accessed 15 May
-                  2026.
-                </p>
-                <p>
-                  “American War by Omar El Akkad.” <em>Penguin Random House</em>,
-                  www.penguinrandomhouse.com/books/241836/american-war-by-omar-el-akkad/. Accessed 15
-                  May 2026.
-                </p>
-                <p>
-                  Charles, Ron. “‘American War’ Follows Today’s Vitriol to a Dystopian Future.”
-                  <em>Washington Post</em>, 3 Apr. 2017,
-                  www.washingtonpost.com/entertainment/books/american-war-follows-todays-vitriol-to-a-dystopian-future/2017/04/03/79ac6952-186d-11e7-bcc2-7d1a0973e7b2_story.html.
-                </p>
-                <p>
-                  El Akkad, Omar. <em>American War</em>. Alfred A. Knopf, 2017.
-                </p>
-                <p>
-                  Frypie. <em>Omar El Akkad 1030700</em>. 27 Mar. 2025. <em>Wikimedia Commons</em>,
-                  commons.wikimedia.org/wiki/File:Omar_El_Akkad_1030700.jpg. CC BY-SA 4.0.
-                </p>
-                <p>
-                  García-Navarro, Lulu, host. “Interview: Omar El Akkad, Author of <em>American War</em>.”
-                  <em>Weekend Edition Sunday</em>, NPR, 2 Apr. 2017,
-                  www.npr.org/2017/04/02/522194002/american-war-explores-the-universality-of-revenge.
-                </p>
-                <p>
-                  jetheriot. <em>2016 Louisiana Flood – 10</em>. 2016. <em>Wikimedia Commons</em>,
-                  commons.wikimedia.org/wiki/File:2016_Louisiana_Flood_-_10.jpg. CC BY 2.0.
-                </p>
-                <p>
-                  <em>Knopf Doubleday: American War — Omar El Akkad</em>. <em>YouTube</em>, uploaded by Knopf
-                  Doubleday, 2017, www.youtube.com/watch?v=Fh-XLSWsrrc.
-                </p>
-                <p>
-                  “Portrait of African American Man, Seated.” <em>Prints &amp; Photographs Division</em>,
-                  Library of Congress, Washington, www.loc.gov/pictures/item/2006688030/.
-                </p>
-              </div>
-            </section>
-            <section class="page page-right works-page" data-side="right">
-              <h3>Image ethics note</h3>
-              <p>
-                Library of Congress portraits are historical documents. They are used here only as
-                tactile, cited visual prompts while you discuss El Akkad’s characters in class—never
-                as biographical proof of how Sarat “really looked.” Pair every slide with that
-                disclaimer and you stay aligned with both academic integrity and human dignity.
-              </p>
-              <h3>Back matter</h3>
-              <p>
-                Vintage’s later paperback reissues broaden classroom access; whichever imprint you
-                hold, keep pagination consistent with your in-text citations.
-              </p>
-              <p class="page-number">finis</p>
-            </section>
-          </section>
+                <p class="publisher-mark">Knopf · Vintage</p>
+              </section>
+            </article>
+          </div>
+        </section>
+      </div>
 
-          <section class="cover back-cover" aria-label="Back cover">
-            <div class="back-pattern" aria-hidden="true"></div>
-            <h2>OMAR EL AKKAD</h2>
-            <p>
-              <strong>American War</strong> maps today’s climate and security headlines onto a
-              claustrophobic domestic future, insisting that empathy is a strategic resource, not a
-              luxury.
-            </p>
-            <p>
-              Built as an interactive folio: textured paper, parallax lighting, publisher media, and
-              MLA-ready citations wired directly into the layout.
-            </p>
-            <p class="publisher-mark">Vintage · Knopf imprints</p>
-          </section>
-        </article>
-      </section>
-    </main>
+      <footer class="desk-footer">
+        <span class="made">Made by</span>
+        <span class="credit-name">Your Name</span>
+      </footer>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
