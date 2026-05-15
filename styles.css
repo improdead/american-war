@@ -99,12 +99,17 @@ body {
 }
 
 .book {
-  width: min(400px, 82vw);
-  aspect-ratio: 2 / 3.12;
   transform-style: preserve-3d;
   position: relative;
   transform: rotateX(8deg) translateZ(0);
-  transition: transform 0.9s var(--flip-ease);
+  transition:
+    transform 0.9s var(--flip-ease),
+    width 0.65s ease,
+    max-height 0.65s ease,
+    aspect-ratio 0.65s ease;
+  /* Closed: one portrait board (cover + spine) */
+  width: min(400px, 82vw);
+  aspect-ratio: 2 / 3.12;
 }
 
 .book.closed {
@@ -112,7 +117,10 @@ body {
 }
 
 .book.open {
-  transform: rotateX(10deg) rotateY(-11deg) translateZ(4px);
+  /* Open: two facing pages need a *landscape* frame (≈1.7:1), not a single-page portrait ratio */
+  width: min(900px, 96vw);
+  aspect-ratio: 1.72 / 1;
+  transform: rotateX(8deg) rotateY(-9deg) translateZ(4px);
 }
 
 .cover,
@@ -275,6 +283,7 @@ body {
   color: #e8ecf2;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -294,7 +303,7 @@ body {
 }
 
 .publisher-mark {
-  margin-top: auto;
+  margin-top: 1.35rem;
   font-size: 0.68rem;
   letter-spacing: 0.32em;
   color: rgba(184, 149, 106, 0.65);
@@ -472,7 +481,7 @@ body {
   font-variant: all-small-caps;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 641px) {
   .page--twocol {
     column-count: 2;
     column-gap: 1.15rem;
@@ -752,9 +761,15 @@ body {
   color: var(--muted);
 }
 
-@media (max-width: 900px) {
-  .book {
-    width: min(440px, 92vw);
+@media (max-width: 640px) {
+  .book.closed {
+    width: min(360px, 90vw);
+  }
+
+  .book.open {
+    width: min(96vw, 560px);
+    aspect-ratio: 1.22 / 1;
+    transform: rotateX(6deg) rotateY(-6deg);
   }
 
   .spread {
@@ -793,10 +808,6 @@ body {
 
   .character-grid {
     grid-template-columns: 1fr;
-  }
-
-  .book.open {
-    transform: rotateX(6deg) rotateY(-6deg);
   }
 }
 
