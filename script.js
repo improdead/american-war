@@ -3,7 +3,7 @@ const hint = document.getElementById("hintText");
 const shell = document.getElementById("bookShell");
 const spreads = Array.from(book.querySelectorAll(".spread"));
 const frontCover = book.querySelector(".front-cover");
-const INTERACTIVE_ELEMENTS_SELECTOR = "a, audio, iframe, button, input, textarea, select";
+const INTERACTIVE_ELEMENTS_SELECTOR = "a, audio, iframe, button, input, textarea, select, video";
 const playNarrationButton = document.getElementById("playNarration");
 const stopNarrationButton = document.getElementById("stopNarration");
 
@@ -100,7 +100,7 @@ window.addEventListener("mousemove", (event) => {
 
 if (playNarrationButton && stopNarrationButton && "speechSynthesis" in window) {
   const narration = new SpeechSynthesisUtterance(
-    "American War explores climate collapse, displacement, and generational trauma through Sarat Chestnut's transformation during a second American civil war."
+    "American War by Omar El Akkad traces climate collapse, displacement, and generational trauma through Sarat Chestnut during a second American civil war. This reader pairs archival imagery with thesis-level analysis and full MLA ninth edition citations."
   );
 
   playNarrationButton.addEventListener("click", () => {
@@ -115,3 +115,13 @@ if (playNarrationButton && stopNarrationButton && "speechSynthesis" in window) {
 
 book.classList.add("closed");
 updateHint();
+
+const coverImg = document.querySelector(".front-cover .cover-image");
+if (coverImg) {
+  const fallback = coverImg.getAttribute("data-fallback");
+  coverImg.addEventListener("error", () => {
+    if (fallback && coverImg.getAttribute("src") !== fallback) {
+      coverImg.src = fallback;
+    }
+  });
+}
