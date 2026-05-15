@@ -86,22 +86,40 @@ body {
 .scene {
   position: relative;
   width: min(96vw, 1120px);
-  perspective: 2800px;
-  perspective-origin: 50% 38%;
+  perspective: 3000px;
+  perspective-origin: 50% 40%;
 }
 
 .book-shell {
+  position: relative;
   display: grid;
   place-items: center;
   transform-style: preserve-3d;
-  filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.1)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.06));
+  filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.11)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.05));
   transition: transform 0.18s ease-out;
+}
+
+/* Contact shadow: reads like paper lifted slightly off the desk */
+.book-shell::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -26px;
+  width: min(820px, 90%);
+  height: 42px;
+  translate: -50% 0;
+  background: radial-gradient(ellipse 52% 100% at 50% 50%, rgba(0, 0, 0, 0.16), transparent 72%);
+  filter: blur(7px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.88;
 }
 
 .book {
   transform-style: preserve-3d;
   position: relative;
-  transform: rotateX(8deg) translateZ(0);
+  z-index: 1;
+  transform: rotateX(4deg) translateZ(0);
   transition:
     transform 0.9s var(--flip-ease),
     width 0.65s ease,
@@ -113,14 +131,14 @@ body {
 }
 
 .book.closed {
-  transform: rotateX(8deg) rotateY(0deg);
+  transform: rotateX(4deg) rotateY(0deg);
 }
 
 .book.open {
-  /* Open: two facing pages need a *landscape* frame (≈1.7:1), not a single-page portrait ratio */
-  width: min(900px, 96vw);
-  aspect-ratio: 1.72 / 1;
-  transform: rotateX(8deg) rotateY(-9deg) translateZ(4px);
+  /* Open: trade spread—taller than wide so it reads like a real folio, not a widescreen tablet */
+  width: min(720px, 92vw);
+  aspect-ratio: 1.22 / 1;
+  transform: rotateX(4deg) rotateY(-7deg) translateZ(6px);
 }
 
 .cover,
@@ -133,8 +151,11 @@ body {
   transform-style: preserve-3d;
   backface-visibility: hidden;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.12),
-    0 18px 36px rgba(0, 0, 0, 0.12);
+    0 1px 0 rgba(255, 255, 255, 0.14),
+    0 2px 0 rgba(0, 0, 0, 0.04),
+    0 14px 28px rgba(0, 0, 0, 0.1),
+    0 32px 64px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .cover {
@@ -156,7 +177,10 @@ body {
 
 .book.open .front-cover {
   transform: rotateY(-179deg);
-  box-shadow: -6px 0 24px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    -10px 0 28px rgba(0, 0, 0, 0.22),
+    -3px 0 0 rgba(0, 0, 0, 0.12),
+    inset 4px 0 12px rgba(0, 0, 0, 0.35);
   pointer-events: none;
 }
 
@@ -520,6 +544,39 @@ body {
   margin-top: 0.65rem;
 }
 
+.essay-launch {
+  margin-top: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 25, 23, 0.14);
+  background: linear-gradient(180deg, #fff, #f7f6f2);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.essay-launch:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.essay-launch:focus-visible {
+  outline: 2px solid #1a4d8c;
+  outline-offset: 3px;
+}
+
 .toc {
   margin: 0;
   padding-left: 1.2rem;
@@ -701,6 +758,155 @@ body {
   text-indent: -1.5rem;
 }
 
+/* MLA essay pop-out (full sheet) */
+.essay-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: grid;
+  place-items: center;
+  padding: 1rem clamp(0.75rem, 3vw, 1.75rem);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    visibility 0.28s;
+}
+
+.essay-panel.essay-panel--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.essay-panel__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 20, 24, 0.42);
+  backdrop-filter: blur(2px);
+}
+
+.essay-panel__sheet {
+  position: relative;
+  z-index: 1;
+  width: min(820px, 100%);
+  max-height: min(92vh, 900px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 28px 80px rgba(0, 0, 0, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(10px) scale(0.985);
+  transition: transform 0.32s var(--flip-ease);
+}
+
+.essay-panel.essay-panel--open .essay-panel__sheet {
+  transform: translateY(0) scale(1);
+}
+
+.essay-panel__bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem 0.65rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #fff, #f6f6f4);
+  border-radius: 10px 10px 0 0;
+}
+
+.essay-panel__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.essay-panel__close {
+  flex-shrink: 0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.essay-panel__close:hover {
+  background: #f2f2f0;
+}
+
+.essay-panel__close:focus-visible {
+  outline: 2px solid #1a4d8c;
+  outline-offset: 2px;
+}
+
+.essay-panel__scroll {
+  overflow: auto;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mla-paper {
+  padding: 1.25rem clamp(1rem, 4vw, 2.25rem) 2rem;
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 2;
+  color: #111;
+  text-align: left;
+  hyphens: none;
+}
+
+.mla-heading-block p {
+  margin: 0 0 0.1rem;
+  line-height: 2;
+}
+
+.mla-paper-title {
+  margin-top: 1rem !important;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mla-body p {
+  margin: 0 0 0.05rem;
+  text-indent: 0.5in;
+}
+
+.mla-body p:first-child {
+  text-indent: 0;
+}
+
+.mla-essay-works {
+  margin-top: 2rem;
+}
+
+.mla-essay-works h3 {
+  margin: 0 0 0.75rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 12pt;
+  font-weight: 600;
+  text-align: center;
+}
+
+.mla-works-cited--essay p {
+  margin: 0 0 0.65rem;
+  font-size: 11pt;
+  line-height: 2;
+}
+
 .desk-footer {
   margin-top: 2.5rem;
   text-align: center;
@@ -768,9 +974,9 @@ body {
   }
 
   .book.open {
-    width: min(96vw, 560px);
-    aspect-ratio: 1.22 / 1;
-    transform: rotateX(6deg) rotateY(-6deg);
+    width: min(96vw, 520px);
+    aspect-ratio: 1.12 / 1;
+    transform: rotateX(3deg) rotateY(-5deg);
   }
 
   .spread {
@@ -816,7 +1022,9 @@ body {
   .spread,
   .front-cover,
   .book,
-  .book-scaler {
+  .book-scaler,
+  .essay-panel,
+  .essay-panel__sheet {
     transition-duration: 0.01ms !important;
   }
 }

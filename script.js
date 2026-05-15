@@ -1,3 +1,55 @@
+const essayPanel = document.getElementById("essayPanel");
+const openEssayPanel = document.getElementById("openEssayPanel");
+const closeEssayPanel = document.getElementById("closeEssayPanel");
+const essayScrim = document.getElementById("essayScrim");
+
+let essayOpen = false;
+let essayReturnFocus = null;
+
+function showEssay() {
+  if (!essayPanel) {
+    return;
+  }
+  essayReturnFocus = document.activeElement;
+  essayPanel.classList.add("essay-panel--open");
+  essayPanel.setAttribute("aria-hidden", "false");
+  essayOpen = true;
+  document.body.style.overflow = "hidden";
+  if (closeEssayPanel) {
+    closeEssayPanel.focus();
+  }
+}
+
+function hideEssay() {
+  if (!essayPanel || !essayOpen) {
+    return;
+  }
+  essayPanel.classList.remove("essay-panel--open");
+  essayPanel.setAttribute("aria-hidden", "true");
+  essayOpen = false;
+  document.body.style.overflow = "";
+  if (essayReturnFocus && typeof essayReturnFocus.focus === "function") {
+    essayReturnFocus.focus();
+  }
+}
+
+if (openEssayPanel) {
+  openEssayPanel.addEventListener("click", (event) => {
+    event.stopPropagation();
+    showEssay();
+  });
+}
+if (closeEssayPanel) {
+  closeEssayPanel.addEventListener("click", () => {
+    hideEssay();
+  });
+}
+if (essayScrim) {
+  essayScrim.addEventListener("click", () => {
+    hideEssay();
+  });
+}
+
 const book = document.getElementById("book");
 const hint = document.getElementById("hintText");
 const shell = document.getElementById("bookShell");
@@ -171,6 +223,13 @@ book.addEventListener("click", (event) => {
 });
 
 window.addEventListener("keydown", (event) => {
+  if (essayOpen) {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      hideEssay();
+    }
+    return;
+  }
   if (event.key === "ArrowRight" && isOpen) {
     event.preventDefault();
     goForward();
