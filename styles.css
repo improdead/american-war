@@ -17,8 +17,8 @@
   --accent: #a63d32;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-ui: "Outfit", system-ui, sans-serif;
-  --flip-ms: 1300ms;
-  --flip-ease: cubic-bezier(0.42, 0.04, 0.18, 1);
+  --flip-ms: 1000ms;
+  --flip-ease: cubic-bezier(0.42, 0.0, 0.18, 1);
 }
 
 *,
@@ -614,26 +614,50 @@ body {
   transform-origin: 0% 50%;
   z-index: 250;
   pointer-events: none;
-  will-change: transform;
-  /* Tiny outward tilt so the leaf appears to lift slightly off the binding */
-  transform: rotateY(0deg) translateZ(0.5px);
+  will-change: transform, filter;
+  transform: rotateY(0deg) translateZ(0px);
 }
 
 .flip-leaf--forward {
-  transition: transform var(--flip-ms) var(--flip-ease);
-}
-
-.flip-leaf--forward.is-running {
-  transform: rotateY(-180deg) translateZ(0.5px);
+  transform: rotateY(0deg) translateZ(0px);
 }
 
 .flip-leaf--backward {
-  transform: rotateY(-180deg) translateZ(0.5px);
-  transition: transform var(--flip-ms) var(--flip-ease);
+  transform: rotateY(-180deg) translateZ(0px);
+}
+
+.flip-leaf--forward.is-running {
+  animation: leafFlipForward var(--flip-ms) var(--flip-ease) forwards;
 }
 
 .flip-leaf--backward.is-running {
-  transform: rotateY(0deg) translateZ(0.5px);
+  animation: leafFlipBackward var(--flip-ms) var(--flip-ease) forwards;
+}
+
+@keyframes leafFlipForward {
+  0%   { transform: rotateY(   0deg) rotateZ(0deg)    translateZ( 0px);
+         filter: drop-shadow(0 0 0 transparent); }
+  18%  { transform: rotateY( -22deg) rotateZ(-1.2deg) translateZ(14px);
+         filter: drop-shadow(-6px 10px 8px rgba(0,0,0,0.18)); }
+  50%  { transform: rotateY( -90deg) rotateZ(-2deg)   translateZ(26px);
+         filter: drop-shadow(0 14px 18px rgba(0,0,0,0.28)); }
+  82%  { transform: rotateY(-158deg) rotateZ(-1.2deg) translateZ(14px);
+         filter: drop-shadow(6px 10px 8px rgba(0,0,0,0.18)); }
+  100% { transform: rotateY(-180deg) rotateZ(0deg)    translateZ( 0px);
+         filter: drop-shadow(0 0 0 transparent); }
+}
+
+@keyframes leafFlipBackward {
+  0%   { transform: rotateY(-180deg) rotateZ(0deg)    translateZ( 0px);
+         filter: drop-shadow(0 0 0 transparent); }
+  18%  { transform: rotateY(-158deg) rotateZ(1.2deg)  translateZ(14px);
+         filter: drop-shadow(6px 10px 8px rgba(0,0,0,0.18)); }
+  50%  { transform: rotateY( -90deg) rotateZ(2deg)    translateZ(26px);
+         filter: drop-shadow(0 14px 18px rgba(0,0,0,0.28)); }
+  82%  { transform: rotateY( -22deg) rotateZ(1.2deg)  translateZ(14px);
+         filter: drop-shadow(-6px 10px 8px rgba(0,0,0,0.18)); }
+  100% { transform: rotateY(   0deg) rotateZ(0deg)    translateZ( 0px);
+         filter: drop-shadow(0 0 0 transparent); }
 }
 
 .leaf-face {
@@ -1422,4 +1446,238 @@ body {
     transition-duration: 0.01ms !important;
     animation: none !important;
   }
+}
+
+/* ==============================================================
+   BOOK STICKERS — sticky-note style annotations affixed to pages
+   ============================================================== */
+
+.sticker {
+  position: absolute;
+  display: block;
+  width: clamp(150px, 26%, 210px);
+  padding: 1rem 0.9rem 0.85rem;
+  background: linear-gradient(180deg, #fff5a3 0%, #ffe974 100%);
+  color: #2c2520;
+  font-family: "Caveat", "Patrick Hand", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.08rem;
+  line-height: 1.22;
+  border-radius: 2px 4px 12px 4px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 -10px 18px -8px rgba(0, 0, 0, 0.06) inset,
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    0 14px 22px rgba(0, 0, 0, 0.12);
+  z-index: 6;
+  transform: rotate(-2.5deg);
+  transform-origin: top center;
+  pointer-events: auto;
+  transition:
+    transform 0.28s var(--flip-ease),
+    box-shadow 0.28s ease;
+  /* very subtle paper texture */
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.45), transparent 22%),
+    linear-gradient(180deg, #fff5a3 0%, #ffe974 100%);
+}
+
+.sticker::before {
+  /* Washi-tape strip */
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 22%;
+  width: 56%;
+  height: 18px;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.35) 0 6px,
+      rgba(255, 255, 255, 0.1) 6px 12px
+    ),
+    linear-gradient(180deg, rgba(214, 158, 90, 0.78), rgba(186, 130, 70, 0.65));
+  transform: rotate(-4deg);
+  border: 1px solid rgba(120, 75, 25, 0.22);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 4px 8px -4px rgba(0, 0, 0, 0.18);
+  border-radius: 1px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.sticker::after {
+  /* curled-corner shadow on the bottom-right */
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  width: 26px;
+  height: 14px;
+  background: linear-gradient(135deg, transparent 48%, rgba(0, 0, 0, 0.18) 75%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.sticker:hover {
+  transform: rotate(-2.5deg) translateY(-3px) scale(1.04);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 -10px 18px -8px rgba(0, 0, 0, 0.06) inset,
+    0 6px 12px rgba(0, 0, 0, 0.14),
+    0 22px 32px rgba(0, 0, 0, 0.14);
+}
+
+.sticker__label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(40, 30, 10, 0.6);
+  margin-bottom: 0.3rem;
+}
+
+.sticker p,
+.sticker em,
+.sticker strong {
+  margin: 0;
+}
+
+.sticker strong {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Colour variants */
+.sticker--pink {
+  background: linear-gradient(180deg, #ffd5e0 0%, #ffb6c8 100%);
+  background-image:
+    radial-gradient(circle at 22% 14%, rgba(255, 255, 255, 0.5), transparent 22%),
+    linear-gradient(180deg, #ffd5e0 0%, #ffb6c8 100%);
+  transform: rotate(2.4deg);
+}
+.sticker--pink:hover { transform: rotate(2.4deg) translateY(-3px) scale(1.04); }
+
+.sticker--blue {
+  background: linear-gradient(180deg, #d6e8ff 0%, #a8caff 100%);
+  background-image:
+    radial-gradient(circle at 22% 14%, rgba(255, 255, 255, 0.5), transparent 22%),
+    linear-gradient(180deg, #d6e8ff 0%, #a8caff 100%);
+  transform: rotate(-3.4deg);
+}
+.sticker--blue:hover { transform: rotate(-3.4deg) translateY(-3px) scale(1.04); }
+
+.sticker--mint {
+  background: linear-gradient(180deg, #d8f1cc 0%, #b6e4a3 100%);
+  background-image:
+    radial-gradient(circle at 22% 14%, rgba(255, 255, 255, 0.5), transparent 22%),
+    linear-gradient(180deg, #d8f1cc 0%, #b6e4a3 100%);
+  transform: rotate(1.7deg);
+}
+.sticker--mint:hover { transform: rotate(1.7deg) translateY(-3px) scale(1.04); }
+
+.sticker--lilac {
+  background: linear-gradient(180deg, #e6d8ff 0%, #c8b1f0 100%);
+  background-image:
+    radial-gradient(circle at 22% 14%, rgba(255, 255, 255, 0.5), transparent 22%),
+    linear-gradient(180deg, #e6d8ff 0%, #c8b1f0 100%);
+  transform: rotate(-1.6deg);
+}
+.sticker--lilac:hover { transform: rotate(-1.6deg) translateY(-3px) scale(1.04); }
+
+/* Index-card / lined paper variant */
+.sticker--card {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 22px,
+      rgba(120, 160, 200, 0.28) 22px 23px
+    ),
+    #fbfaf3;
+  background-image:
+    linear-gradient(90deg, transparent 22px, rgba(200, 80, 80, 0.45) 22px, rgba(200, 80, 80, 0.45) 23px, transparent 23px),
+    repeating-linear-gradient(180deg, transparent 0 22px, rgba(120, 160, 200, 0.32) 22px 23px),
+    #fbfaf3;
+  padding-left: 2rem;
+  font-family: "Patrick Hand", "Caveat", cursive;
+  font-size: 0.95rem;
+  color: #1f2a3c;
+  transform: rotate(1deg);
+}
+.sticker--card:hover { transform: rotate(1deg) translateY(-3px) scale(1.04); }
+
+.sticker--card::before {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.45) 0 6px,
+      rgba(255, 255, 255, 0.15) 6px 12px
+    ),
+    linear-gradient(180deg, rgba(180, 200, 230, 0.85), rgba(140, 170, 210, 0.7));
+}
+
+/* Sticker positioning helpers — anchor inside .page */
+.sticker--tl { top: 1.7rem;  left: 0.9rem; }
+.sticker--tr { top: 1.7rem;  right: 0.9rem; }
+.sticker--bl { bottom: 2.5rem; left: 0.9rem; }
+.sticker--br { bottom: 2.5rem; right: 0.9rem; }
+.sticker--m-tr { top: 38%; right: 0.6rem; }
+.sticker--m-tl { top: 38%; left: 0.6rem; }
+.sticker--side-r { top: 22%; right: 0.5rem; }
+.sticker--side-l { top: 22%; left: 0.5rem; }
+
+/* Small sticker */
+.sticker--sm { width: clamp(120px, 20%, 170px); font-size: 0.95rem; padding: 0.75rem 0.7rem 0.65rem; }
+
+/* Big sticker */
+.sticker--lg { width: clamp(180px, 32%, 250px); font-size: 1.18rem; }
+
+/* Inert state for cloned stickers in the flipping leaf */
+.flip-leaf .sticker,
+.flip-leaf .sticker:hover {
+  pointer-events: none;
+  transition: none;
+}
+
+/* === Per-page polish: subtle running headers and decorative dividers === */
+.page-divider {
+  display: block;
+  width: 36%;
+  height: 1px;
+  margin: 0.85rem 0 0.6rem;
+  background: linear-gradient(90deg, transparent, rgba(166, 61, 50, 0.35), transparent);
+}
+
+.page-divider--center { margin-left: auto; margin-right: auto; }
+
+.section-tab {
+  position: absolute;
+  top: 1.95rem;
+  font-family: var(--font-ui);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(255, 248, 230, 0.6);
+  padding: 0.18rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid rgba(166, 61, 50, 0.18);
+}
+.page-left .section-tab { left: 1.75rem; }
+.page-right .section-tab { right: 1.75rem; }
+
+/* Slight darkening on stickers when their parent page is the "incoming" half during flip
+   to keep them from popping over the flipping leaf jarringly. */
+.spread.is-incoming-forward .sticker,
+.spread.is-incoming-backward .sticker {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.spread.is-current .sticker {
+  opacity: 1;
+  transition: opacity 0.5s ease 0.15s;
 }
