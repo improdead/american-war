@@ -13,8 +13,10 @@
   --accent: #a63d32;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-ui: "Outfit", system-ui, sans-serif;
-  --flip-ms: 1050ms;
-  --flip-ease: cubic-bezier(0.52, 0.02, 0.12, 1);
+  --flip-ms: 1180ms;
+  --flip-ease: cubic-bezier(0.34, 0.02, 0.12, 1);
+  --flip-ease-cover: cubic-bezier(0.38, 0.06, 0.14, 1);
+  --scene-perspective: 2400px;
 }
 
 *,
@@ -79,16 +81,16 @@ body {
 }
 
 .book-scaler {
-  transform-origin: center 18%;
-  transition: transform 0.35s var(--flip-ease);
+  transform-origin: center 22%;
+  transition: transform 0.4s var(--flip-ease);
   will-change: transform;
 }
 
 .scene {
   position: relative;
-  width: min(96vw, 1120px);
-  perspective: 3000px;
-  perspective-origin: 50% 40%;
+  width: min(98vw, 1320px);
+  perspective: var(--scene-perspective);
+  perspective-origin: 36% 44%;
 }
 
 .book-shell {
@@ -96,8 +98,11 @@ body {
   display: grid;
   place-items: center;
   transform-style: preserve-3d;
-  filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.11)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.05));
-  transition: transform 0.18s ease-out;
+  filter:
+    drop-shadow(0 36px 48px rgba(0, 0, 0, 0.14))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.08))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+  transition: transform 0.22s ease-out;
 }
 
 /* Contact shadow: reads like paper lifted slightly off the desk */
@@ -105,41 +110,53 @@ body {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -26px;
-  width: min(680px, 88%);
-  height: 42px;
+  bottom: -32px;
+  width: min(860px, 92%);
+  height: 52px;
   translate: -50% 0;
-  background: radial-gradient(ellipse 52% 100% at 50% 50%, rgba(0, 0, 0, 0.16), transparent 72%);
-  filter: blur(7px);
+  background: radial-gradient(ellipse 55% 100% at 50% 50%, rgba(0, 0, 0, 0.2), transparent 74%);
+  filter: blur(10px);
   pointer-events: none;
   z-index: 0;
-  opacity: 0.88;
+  opacity: 0.9;
 }
 
 .book {
   transform-style: preserve-3d;
   position: relative;
   z-index: 1;
-  transform: rotateX(2deg) translateZ(0);
+  transform: rotateX(3deg) translateZ(0);
   transition:
-    transform 0.9s var(--flip-ease),
-    width 0.65s ease,
-    max-height 0.65s ease,
-    aspect-ratio 0.65s ease;
+    transform 0.95s var(--flip-ease),
+    width 0.72s var(--flip-ease),
+    max-height 0.72s var(--flip-ease),
+    aspect-ratio 0.72s var(--flip-ease),
+    box-shadow 0.72s ease;
   /* Closed: one portrait board (cover + spine) */
-  width: min(400px, 82vw);
+  width: min(460px, 86vw);
   aspect-ratio: 2 / 3.12;
+  border-radius: 4px 7px 7px 4px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    inset 0 2px 0 rgba(255, 255, 255, 0.12),
+    0 24px 50px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .book.closed {
-  transform: rotateX(2deg) rotateY(0deg);
+  transform: rotateX(3deg) rotateY(0deg) translateZ(2px);
 }
 
 .book.open {
-  /* Taller folio: closer to two portrait pages than a wide monitor */
-  width: min(680px, 90vw);
-  aspect-ratio: 1.1 / 1;
-  transform: rotateX(2deg) rotateY(-5deg) translateZ(4px);
+  width: min(860px, 94vw);
+  aspect-ratio: 1.08 / 1;
+  transform: rotateX(3deg) rotateY(-6deg) translateZ(12px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    -18px 0 40px rgba(0, 0, 0, 0.08),
+    0 40px 70px rgba(0, 0, 0, 0.14),
+    0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .cover,
@@ -156,7 +173,8 @@ body {
     0 2px 0 rgba(0, 0, 0, 0.04),
     0 14px 28px rgba(0, 0, 0, 0.1),
     0 32px 64px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset -10px 0 18px -6px rgba(0, 0, 0, 0.07);
 }
 
 .cover {
@@ -172,16 +190,17 @@ body {
   align-items: stretch;
   background: var(--cover-charcoal);
   transition:
-    transform var(--flip-ms) var(--flip-ease),
-    box-shadow var(--flip-ms) ease;
+    transform calc(var(--flip-ms) * 1.05) var(--flip-ease-cover),
+    box-shadow calc(var(--flip-ms) * 1.05) ease;
 }
 
 .book.open .front-cover {
-  transform: rotateY(-179deg);
+  transform: rotateY(-178deg);
   box-shadow:
-    -10px 0 28px rgba(0, 0, 0, 0.22),
-    -3px 0 0 rgba(0, 0, 0, 0.12),
-    inset 4px 0 12px rgba(0, 0, 0, 0.35);
+    -22px 0 46px rgba(0, 0, 0, 0.28),
+    -8px 0 0 rgba(0, 0, 0, 0.1),
+    inset 6px 0 18px rgba(0, 0, 0, 0.42),
+    inset 0 0 40px rgba(0, 0, 0, 0.15);
   pointer-events: none;
 }
 
@@ -342,14 +361,31 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
-  background: linear-gradient(90deg, var(--spread-edge) 0%, var(--spread-paper) 8%, var(--spread-paper) 92%, var(--spread-edge) 100%);
+  background: linear-gradient(90deg, var(--spread-edge) 0%, var(--spread-paper) 8%, var(--spread-paper) 92%, var(--spread-edge) 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(48, 42, 36, 0.07) 0 1px,
+      rgba(252, 248, 238, 0.35) 1px 2px,
+      rgba(48, 42, 36, 0.05) 2px 3px
+    );
+  background-size:
+    100% 100%,
+    14px 100%;
+  background-position:
+    0 0,
+    100% 0;
+  background-repeat: no-repeat, no-repeat;
   border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 2px 5px 5px 2px;
   z-index: 2;
   padding-top: 1.85rem;
-  transform: rotateY(0deg);
-  transition: transform var(--flip-ms) var(--flip-ease);
+  transform: rotateY(0deg) translateZ(0.25px);
+  transition:
+    transform var(--flip-ms) var(--flip-ease),
+    box-shadow var(--flip-ms) ease,
+    filter var(--flip-ms) ease;
   will-change: transform;
+  cursor: pointer;
 }
 
 .spread::before {
@@ -398,13 +434,17 @@ body {
 }
 
 .spread.is-flipping {
+  filter: brightness(0.97);
   box-shadow:
-    -16px 0 36px rgba(0, 0, 0, 0.14),
-    inset -36px 0 44px -18px rgba(0, 0, 0, 0.07);
+    -28px 0 52px rgba(0, 0, 0, 0.18),
+    -6px 0 20px rgba(0, 0, 0, 0.1),
+    inset -48px 0 56px -22px rgba(0, 0, 0, 0.09),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .spread.flipped {
-  transform: rotateY(-180deg);
+  transform: rotateY(-180deg) translateZ(0.25px);
+  filter: none;
 }
 
 .page {
@@ -437,7 +477,8 @@ body {
   padding-left: 1.35rem;
   box-shadow:
     inset 10px 0 18px -12px rgba(0, 0, 0, 0.07),
-    inset 0 0 80px rgba(255, 255, 255, 0.35);
+    inset 0 0 80px rgba(255, 255, 255, 0.35),
+    inset -14px 0 22px -10px rgba(42, 36, 30, 0.06);
 }
 
 .page::before {
@@ -974,13 +1015,17 @@ body {
 
 @media (max-width: 640px) {
   .book.closed {
-    width: min(360px, 90vw);
+    width: min(400px, 92vw);
   }
 
   .book.open {
-    width: min(96vw, 520px);
+    width: min(96vw, 620px);
     aspect-ratio: 1.05 / 1;
-    transform: rotateX(2deg) rotateY(-4deg);
+    transform: rotateX(3deg) rotateY(-5deg) translateZ(8px);
+  }
+
+  .book-shell::after {
+    width: min(620px, 94%);
   }
 
   .spread {

@@ -277,12 +277,8 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("mousemove", (event) => {
-  if (isOpen) {
-    shell.style.transform = "rotateX(0deg) rotateY(0deg)";
-    return;
-  }
-  const rotationY = (event.clientX / window.innerWidth - 0.5) * 5;
-  const rotationX = (event.clientY / window.innerHeight - 0.5) * -3.5;
+  const rotationY = (event.clientX / window.innerWidth - 0.5) * (isOpen ? 5.5 : 5);
+  const rotationX = (event.clientY / window.innerHeight - 0.5) * (isOpen ? -2.2 : -3.5);
   shell.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 });
 
