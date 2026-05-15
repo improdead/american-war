@@ -286,7 +286,7 @@ function goForward() {
   const finish = () => {
     if (settled) return;
     settled = true;
-    leaf.removeEventListener("transitionend", onEnd);
+    leaf.removeEventListener("animationend", onEnd);
     leaf.remove();
     shadeR.remove();
     shadeL.remove();
@@ -303,11 +303,11 @@ function goForward() {
     updateHint();
   };
   const onEnd = (event) => {
-    if (event.propertyName !== "transform") return;
+    if (event.animationName && !event.animationName.startsWith("leafFlip")) return;
     finish();
   };
-  leaf.addEventListener("transitionend", onEnd);
-  setTimeout(finish, 1700);
+  leaf.addEventListener("animationend", onEnd);
+  setTimeout(finish, 1400);
 }
 
 function goBackward() {
@@ -358,7 +358,7 @@ function goBackward() {
   const finish = () => {
     if (settled) return;
     settled = true;
-    leaf.removeEventListener("transitionend", onEnd);
+    leaf.removeEventListener("animationend", onEnd);
     leaf.remove();
     shadeL.remove();
     shadeR.remove();
@@ -371,11 +371,11 @@ function goBackward() {
     updateHint();
   };
   const onEnd = (event) => {
-    if (event.propertyName !== "transform") return;
+    if (event.animationName && !event.animationName.startsWith("leafFlip")) return;
     finish();
   };
-  leaf.addEventListener("transitionend", onEnd);
-  setTimeout(finish, 1700);
+  leaf.addEventListener("animationend", onEnd);
+  setTimeout(finish, 1400);
 }
 
 if (frontCover) {
@@ -387,7 +387,7 @@ if (frontCover) {
 book.addEventListener("click", (event) => {
   if (!isOpen || event.target.closest(".front-cover")) return;
   if (event.target.closest(INTERACTIVE_ELEMENTS_SELECTOR)) return;
-  if (event.target.closest(".flip-leaf, .flip-shade")) return;
+  if (event.target.closest(".flip-leaf, .flip-shade, .sticker")) return;
 
   const bounds = book.getBoundingClientRect();
   const clickX = event.clientX - bounds.left;
