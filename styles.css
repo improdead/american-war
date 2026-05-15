@@ -1,10 +1,11 @@
 :root {
-  --table: #fdfdfd;
-  --table-line: rgba(0, 0, 0, 0.028);
+  --table: #f2f1ec;
+  --table-line: rgba(0, 0, 0, 0.04);
   --ink: #1c1917;
   --muted: #6b6560;
-  --paper: #fffef9;
+  --paper: #faf8f0;
   --paper-shadow: #e3ddd0;
+  --kicker-band: linear-gradient(180deg, #e9dcc8 0%, #dfd0bb 55%, #d4c4ae 100%);
   --gold: #b8956a;
   --gold-deep: #8a6e3d;
   --cover-charcoal: #1e2128;
@@ -12,8 +13,8 @@
   --accent: #a63d32;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-ui: "Outfit", system-ui, sans-serif;
-  --flip-ms: 1380ms;
-  --flip-ease: cubic-bezier(0.33, 0.04, 0.15, 1);
+  --flip-ms: 1050ms;
+  --flip-ease: cubic-bezier(0.52, 0.02, 0.12, 1);
 }
 
 *,
@@ -31,7 +32,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-ui);
   color: var(--ink);
-  background-color: #fff;
+  background-color: #f4f3ee;
   background-image:
     linear-gradient(90deg, var(--table-line) 1px, transparent 1px),
     linear-gradient(180deg, var(--table-line) 1px, transparent 1px),
@@ -39,10 +40,10 @@ body {
       0deg,
       transparent,
       transparent 4px,
-      rgba(0, 0, 0, 0.012) 4px,
-      rgba(0, 0, 0, 0.012) 5px
+      rgba(0, 0, 0, 0.014) 4px,
+      rgba(0, 0, 0, 0.014) 5px
     ),
-    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(255, 255, 255, 1), var(--table) 52%, #f6f6f4 100%);
+    radial-gradient(ellipse 88% 52% at 50% -4%, rgba(255, 255, 255, 0.95), var(--table) 55%, #ebe9e2 100%);
   background-size:
     28px 28px,
     28px 28px,
@@ -105,7 +106,7 @@ body {
   position: absolute;
   left: 50%;
   bottom: -26px;
-  width: min(820px, 90%);
+  width: min(680px, 88%);
   height: 42px;
   translate: -50% 0;
   background: radial-gradient(ellipse 52% 100% at 50% 50%, rgba(0, 0, 0, 0.16), transparent 72%);
@@ -119,7 +120,7 @@ body {
   transform-style: preserve-3d;
   position: relative;
   z-index: 1;
-  transform: rotateX(4deg) translateZ(0);
+  transform: rotateX(2deg) translateZ(0);
   transition:
     transform 0.9s var(--flip-ease),
     width 0.65s ease,
@@ -131,14 +132,14 @@ body {
 }
 
 .book.closed {
-  transform: rotateX(4deg) rotateY(0deg);
+  transform: rotateX(2deg) rotateY(0deg);
 }
 
 .book.open {
-  /* Open: trade spread—taller than wide so it reads like a real folio, not a widescreen tablet */
-  width: min(720px, 92vw);
-  aspect-ratio: 1.22 / 1;
-  transform: rotateX(4deg) rotateY(-7deg) translateZ(6px);
+  /* Taller folio: closer to two portrait pages than a wide monitor */
+  width: min(680px, 90vw);
+  aspect-ratio: 1.1 / 1;
+  transform: rotateX(2deg) rotateY(-5deg) translateZ(4px);
 }
 
 .cover,
@@ -334,8 +335,8 @@ body {
 }
 
 .spread {
-  --spread-paper: #f3ecdf;
-  --spread-edge: #e5dcc8;
+  --spread-paper: #f5f0e4;
+  --spread-edge: #e8dcc8;
   position: absolute;
   inset: 0;
   display: grid;
@@ -345,36 +346,39 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 2px 5px 5px 2px;
   z-index: 2;
-  padding-top: 1.55rem;
-  transition:
-    transform var(--flip-ms) var(--flip-ease),
-    box-shadow var(--flip-ms) ease;
+  padding-top: 1.85rem;
+  transform: rotateY(0deg);
+  transition: transform var(--flip-ms) var(--flip-ease);
   will-change: transform;
 }
 
 .spread::before {
   content: attr(data-kicker);
   position: absolute;
-  top: 0.32rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 5;
+  padding: 0.42rem 0.75rem 0.38rem;
   font-family: var(--font-ui);
   font-size: 0.58rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(60, 52, 48, 0.55);
+  text-align: center;
+  color: rgba(52, 46, 40, 0.72);
   white-space: nowrap;
-  max-width: 96%;
   overflow: hidden;
   text-overflow: ellipsis;
+  background: var(--kicker-band);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
 }
 
 .spread::after {
   content: "";
   position: absolute;
   left: 50%;
-  top: 6%;
+  top: 8%;
   bottom: 6%;
   width: 18px;
   margin-left: -9px;
@@ -395,19 +399,19 @@ body {
 
 .spread.is-flipping {
   box-shadow:
-    -12px 0 28px rgba(0, 0, 0, 0.12),
-    inset -40px 0 50px -20px rgba(0, 0, 0, 0.06);
+    -16px 0 36px rgba(0, 0, 0, 0.14),
+    inset -36px 0 44px -18px rgba(0, 0, 0, 0.07);
 }
 
 .spread.flipped {
-  transform: rotateY(-179deg);
+  transform: rotateY(-180deg);
 }
 
 .page {
   position: relative;
   padding: 1.45rem 1.55rem 2.65rem 1.6rem;
   border: none;
-  background: linear-gradient(145deg, #fffef9 0%, #faf6ee 48%, #f4efe6 100%);
+  background: linear-gradient(145deg, #faf8f0 0%, #f7f2e6 48%, #f0ebe0 100%);
   overflow: auto;
   font-size: 0.9rem;
   line-height: 1.58;
@@ -791,7 +795,7 @@ body {
   position: relative;
   z-index: 1;
   width: min(820px, 100%);
-  max-height: min(92vh, 900px);
+  max-height: min(94vh, 940px);
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -975,8 +979,8 @@ body {
 
   .book.open {
     width: min(96vw, 520px);
-    aspect-ratio: 1.12 / 1;
-    transform: rotateX(3deg) rotateY(-5deg);
+    aspect-ratio: 1.05 / 1;
+    transform: rotateX(2deg) rotateY(-4deg);
   }
 
   .spread {

@@ -71,6 +71,7 @@ const zoomLabel = document.getElementById("zoomLabel");
 let isOpen = false;
 let index = 0;
 let zoom = 1;
+let flipLock = false;
 
 function refreshStacking() {
   if (!isOpen) {
@@ -83,16 +84,29 @@ function refreshStacking() {
     return;
   }
 
+  if (index >= spreads.length) {
+    spreads.forEach((el, i) => {
+      el.style.zIndex = String(20 + i);
+    });
+    if (backCover) {
+      backCover.style.zIndex = "160";
+    }
+    return;
+  }
+
+  /* Current spread stays on top while it rotates; already-turned spreads sit at the bottom. */
   spreads.forEach((el, i) => {
-    if (el.classList.contains("flipped")) {
-      el.style.zIndex = String(10 + i);
+    if (i < index) {
+      el.style.zIndex = String(20 + i);
+    } else if (i === index) {
+      el.style.zIndex = "300";
     } else {
-      el.style.zIndex = String(200 + (spreads.length - i));
+      el.style.zIndex = String(100 + (spreads.length - i));
     }
   });
 
   if (backCover) {
-    backCover.style.zIndex = index >= spreads.length ? "160" : "2";
+    backCover.style.zIndex = "2";
   }
 }
 
@@ -142,6 +156,7 @@ function openBook() {
 function closeBook() {
   isOpen = false;
   index = 0;
+  flipLock = false;
   spreads.forEach((spread) => {
     spread.classList.remove("flipped", "is-flipping");
   });
@@ -155,39 +170,61 @@ function closeBook() {
 }
 
 function goForward() {
-  if (index >= spreads.length) {
+  if (flipLock || index >= spreads.length) {
     return;
   }
   const sp = spreads[index];
+  flipLock = true;
   sp.classList.add("is-flipping");
   requestAnimationFrame(() => {
-    sp.classList.add("flipped");
+    requestAnimationFrame(() => {
+      sp.classList.add("flipped");
+    });
   });
 
+  let settled = false;
   const onEnd = (event) => {
-    if (event.propertyName !== "transform") {
+    if (event.propertyName !== "transform" || settled) {
       return;
     }
+    settled = true;
     sp.classList.remove("is-flipping");
     sp.removeEventListener("transitionend", onEnd);
+    index += 1;
+    flipLock = false;
+    refreshStacking();
+    updateHint();
   };
   sp.addEventListener("transitionend", onEnd);
-
-  index += 1;
-  refreshStacking();
-  updateHint();
 }
 
 function goBackward() {
+  if (flipLock) {
+    return;
+  }
   if (index <= 0) {
     closeBook();
     return;
   }
+  flipLock = true;
   index -= 1;
   const sp = spreads[index];
-  sp.classList.remove("flipped", "is-flipping");
+  sp.classList.add("is-flipping");
+  sp.classList.remove("flipped");
   refreshStacking();
-  updateHint();
+
+  let settled = false;
+  const onEnd = (event) => {
+    if (event.propertyName !== "transform" || settled) {
+      return;
+    }
+    settled = true;
+    sp.classList.remove("is-flipping");
+    sp.removeEventListener("transitionend", onEnd);
+    flipLock = false;
+    updateHint();
+  };
+  sp.addEventListener("transitionend", onEnd);
 }
 
 if (frontCover) {
@@ -251,7 +288,7 @@ window.addEventListener("mousemove", (event) => {
 
 if (playNarrationButton && stopNarrationButton && "speechSynthesis" in window) {
   const narration = new SpeechSynthesisUtterance(
-    "American War by Omar El Akkad traces Sarat Chestnut through climate disaster, displacement, and the machinery of revenge. Replace this track with your own narration for full credit."
+    "American War by Omar El Akkad follows Sarat Chestnut through climate disaster, camps, and radicalization. This desk edition includes a feminist MLA essay you can open from the front matter."
   );
 
   playNarrationButton.addEventListener("click", () => {
