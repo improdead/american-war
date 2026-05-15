@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -73,9 +73,16 @@
                   <p class="subtitle">A Novel · Omar El Akkad</p>
                   <p class="publisher">Alfred A. Knopf · New York · 2017</p>
                   <p class="lede">
-                    Desk edition: twelve spreads of summary, analysis, character study, media, and
-                    MLA 9 works cited—organized for clarity, zoomable for reading aloud in class.
+                    Desk edition: spreads for summary, characters, media, and citations—plus a
+                    full-length feminist reading you can open in an MLA-formatted sheet.
                   </p>
+                  <p class="fineprint">
+                    Opens as an overlay so the bound folio stays underneath; close to return to
+                    the spread.
+                  </p>
+                  <button type="button" class="essay-launch" id="openEssayPanel">
+                    Feminist essay (MLA sheet)
+                  </button>
                 </section>
                 <section class="page page-right page--twocol">
                   <div class="page-header">
@@ -83,7 +90,7 @@
                     <span class="page-num">ii</span>
                   </div>
                   <ol class="toc">
-                    <li>Opening &amp; table of contents</li>
+                    <li>Opening, contents &amp; feminist MLA sheet</li>
                     <li>Summary &amp; imagined setting</li>
                     <li>Plot pressure &amp; moral stakes</li>
                     <li>Climate collapse &amp; remote war</li>
@@ -236,25 +243,28 @@
                     <span class="page-num">9</span>
                   </div>
                   <p>
-                    <strong>Thesis:</strong> When societies choose vengeance over repair, war
-                    becomes a literacy taught at kitchen tables long before it is taught in training
-                    yards.
+                    <strong>Thesis:</strong> In <em>American War</em>, El Akkad stages climate
+                    collapse and civil war through a girl who becomes a woman inside systems that
+                    weaponize care, grief, and survival labor—showing how feminist questions about
+                    whose bodies count as “civilian,” whose anger is legible, and who gets to tell
+                    the story are not accessories to geopolitics but its engine room.
                   </p>
                   <p>
-                    Your essay can defend, complicate, or historicize that claim using evidence from
-                    Sarat’s arc and from El Akkad’s interviews about journalistic method.
+                    Your paper can braid Sarat’s arc with feminist international relations (how
+                    militaries depend on women’s invisible work) and with narrative ethics (who
+                    frames Sarat as monster versus witness).
                   </p>
                 </section>
                 <section class="page page-right">
                   <div class="page-header">
-                    <h3>Essay subtopics</h3>
+                    <h3>Feminist subtopics</h3>
                     <span class="page-num">10</span>
                   </div>
                   <ul class="ideas">
-                    <li><strong>Ecology:</strong> who pays first when the grid wobbles?</li>
-                    <li><strong>Encampment politics:</strong> boredom, rumor, patronage.</li>
-                    <li><strong>Archives of pain:</strong> testimony as weapon or witness.</li>
-                    <li><strong>Genre:</strong> speculative realism vs. dystopian comfort food.</li>
+                    <li><strong>Maternal politics:</strong> Martina’s labor, risk, and refusal.</li>
+                    <li><strong>Camp life:</strong> gendered vulnerability, surveillance, rumor.</li>
+                    <li><strong>Archives of pain:</strong> Benjamin’s narration vs. Sarat’s voice.</li>
+                    <li><strong>Women &amp; political violence:</strong> agency, coercion, spectacle.</li>
                   </ul>
                 </section>
               </section>
@@ -536,6 +546,165 @@
         <span class="made">Made by</span>
         <span class="credit-name">Your Name</span>
       </footer>
+    </div>
+
+    <div
+      class="essay-panel"
+      id="essayPanel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="essayPanelTitle"
+      aria-hidden="true"
+    >
+      <div class="essay-panel__scrim" id="essayScrim" aria-hidden="true"></div>
+      <div class="essay-panel__sheet">
+        <header class="essay-panel__bar">
+          <h2 class="essay-panel__title" id="essayPanelTitle">Feminist readings of <em>American War</em></h2>
+          <button type="button" class="essay-panel__close" id="closeEssayPanel" aria-label="Close essay">
+            Close
+          </button>
+        </header>
+        <div class="essay-panel__scroll">
+          <div class="mla-paper">
+            <div class="mla-heading-block">
+              <p>Student Name</p>
+              <p>Professor Name</p>
+              <p>Course Number</p>
+              <p>15 May 2026</p>
+              <p class="mla-paper-title">Mothers, Monsters, and Archives: Gender, Violence, and Voice in Omar El Akkad’s <em>American War</em></p>
+            </div>
+            <div class="mla-body">
+              <p>
+                Omar El Akkad’s <em>American War</em> is not “about” gender in the thin sense of occasional
+                female characters; it is built from the feminist insight that modern war is assembled in
+                kitchens, checkpoints, and refugee queues long before it is assembled in generals’ maps.
+                By centering Sarat Chestnut—girl, daughter, sister, and eventually a figure the nation
+                cannot decide whether to mourn or monster—El Akkad forces readers to ask who is permitted
+                vulnerability, whose rage is treated as politics, and whose body becomes a public screen
+                for other people’s ideologies (Enloe).
+              </p>
+              <p>
+                A feminist reading begins with the obvious but easily neglected fact that Sarat’s life
+                unfolds inside cascading failures of care: climate displacement, bureaucratic abandonment,
+                and the normalization of lethal force as a substitute for social repair. Feminist critics
+                have long argued that citizenship is lived through the body: who gets clean water, who
+                carries children across checkpoints, who translates official threats for elders (Enloe).
+                El Akkad literalizes that argument by making Sarat’s maturation coincide with the
+                withdrawal of public protection; “security” arrives as drones, tents, and rumors, not as
+                schools, clinics, or steady work.
+              </p>
+              <p>
+                Martina Chestnut is more than backstory: she is the novel’s compressed image of maternal
+                labor under siege—planning meals when calories are political, holding fear steady so
+                children can sleep, translating violence into instructions a child can obey. When
+                Martina dies in the massacre at Camp Patience, the loss is not only emotional plot fuel;
+                it removes the primary buffer between Sarat and a world eager to recruit her grief. Read
+                next to feminist theorizations of kinship under occupation, Martina’s arc shows how war
+                privatizes survival work onto women and then punishes them for failing to be infinite
+                (Enloe; El Akkad).
+              </p>
+              <p>
+                Camp Patience itself reads as a gendered institution even when the text does not announce
+                it with slogans. Encampment reorganizes time: boredom becomes discipline; queues become
+                moral theater; aid becomes leverage. Women and girls disproportionately shoulder the
+                hygiene, childcare, and emotional maintenance that keep camps from collapsing into pure
+                anarchy—labor that rarely counts as “political” until it is too late (Enloe). El Akkad’s
+                granular attention to Sarat’s coming-of-age inside that compressed social space makes
+                feminist sense of how extremist politics can feel like intimacy when it is the only
+                language that acknowledges your injury.
+              </p>
+              <p>
+                Albert Gaines enters the novel as a familiar patriarchal type: the calm male mentor who
+                offers clarity to a girl drowning in noise. His pedagogy trains Sarat to read the North as
+                an undifferentiated enemy, tightening the “us/them” binary until it feels like oxygen. That
+                scene of ideological seduction belongs in a feminist analysis because it shows how
+                militarized masculinity often presents itself as rescue—even as it recruits girls into
+                adulthood defined by hatred rather than choice (Butler). Sarat’s later repetition of what
+                is good for “them” versus “us” marks how binary gender scripts of protection and revenge can
+                harden into weapons (El Akkad 156).
+              </p>
+              <p>
+                Judith Butler’s account of subject formation helps clarify why Sarat’s “choice” cannot be
+                read as purely autonomous. Identities cohere through repetition under constraint; when the
+                available scripts are narrowed to survival, martyrdom, or monstrosity, even rebellion can
+                follow grooves carved by power (Butler). El Akkad refuses the cheap comfort of calling
+                Sarat a spontaneous villain: her violence is cultivated in plain sight by institutions that
+                prefer disposable daughters to expensive justice.
+              </p>
+              <p>
+                Benjamin Chestnut’s archival narration raises a second feminist problem: who owns Sarat’s
+                story once she becomes national myth? When testimony is edited, excerpted, and displayed,
+                the line between witness and ventriloquism blurs. Hasanul Rizqa argues that Benjamin’s
+                framing emphasizes Sarat as a “war victim” rather than reducing her to a flat figure of
+                evil—an interpretive move with feminist stakes because it refuses the misogynistic
+                pleasure of uncomplicated female monstrosity (Rizqa 41). Yet even sympathetic archives can
+                discipline women’s pain into legible genres: the diary page, the confession, the lesson.
+              </p>
+              <p>
+                Sugarloaf pushes these questions into the register of bodily sovereignty. Torture scenes
+                in political fiction often risk spectacle; read through feminist theory, Sarat’s broken
+                relation to truth—“no lie too big” she can be made to swallow—shows how domination targets
+                not only minds but the felt integrity of the body (El Akkad 295). The novel’s ethical horror
+                is not merely that states lie, but that they train victims to participate in their own
+                erasure, rehearsing a gendered history in which women’s speech is discounted unless it
+                confesses what power needs to hear.
+              </p>
+              <p>
+                Caron E. Gentry and Laura Sjoberg’s work on women’s violence in global politics complicates
+                easy headlines about “women terrorists.” Their framework asks us to separate spectacle from
+                structure: when a woman strikes, commentators often treat her body as proof of civilization’s
+                collapse rather than as evidence of long-running policy failures (Gentry and Sjoberg). Read
+                through that lens, Sarat’s final mission is doubly tragic: she believes she is reclaiming
+                agency, while multiple empires treat her trauma as a channel for their own ends—exactly the
+                intersection of intimacy and geopolitics feminist international relations has traced for
+                decades (Enloe; Rizqa 46).
+              </p>
+              <p>
+                The preserved diary fragment—“she was happy then”—functions as a feminist counter-archive
+                to nationalist mythmaking (El Akkad 379). It insists that Sarat had a before: not innocence
+                as naïveté, but a life dense with ordinary attachments that war later converts into evidence,
+                excuse, or propaganda. Feminist criticism has repeatedly shown how empires prefer women’s
+                pain to be timeless and abstract (“womenandchildren”) rather than dated and political;
+                El Akkad’s return to specific happiness is a refusal of that abstraction.
+              </p>
+              <p>
+                None of this analysis requires excusing Sarat’s acts. Rather, it clarifies what a feminist
+                paper can argue with rigor: that <em>American War</em> links climate crisis, civil war, and
+                imperial gamesmanship through gendered pathways—through mothers who cannot shield daughters,
+                through mentors who translate grief into doctrine, through narrators who decide which pages
+                survive, and through a nation that learns to call a girl a weapon because it never learned
+                to call her a citizen. El Akkad’s speculative reversal matters, finally, because it makes
+                those pathways visible on American soil—where they were always already present.
+              </p>
+            </div>            </div>
+            <section class="mla-essay-works" aria-labelledby="essayWorksHeading">
+              <h3 id="essayWorksHeading">Works Cited</h3>
+              <div class="mla-works-cited mla-works-cited--essay">
+                <p>
+                  Butler, Judith. <em>Gender Trouble: Feminism and the Subversion of Identity</em>. Routledge,
+                  1990.
+                </p>
+                <p>
+                  El Akkad, Omar. <em>American War</em>. Alfred A. Knopf, 2017.
+                </p>
+                <p>
+                  Enloe, Cynthia. <em>Bananas, Beaches and Bases: Making Feminist Sense of International
+                  Politics</em>. 2nd ed., U of California P, 2014.
+                </p>
+                <p>
+                  Gentry, Caron E., and Laura Sjoberg. <em>Mothers, Monsters, Whores: Women’s Violence in
+                  Global Politics</em>. Zed Books, 2015.
+                </p>
+                <p>
+                  Rizqa, Hasanul. “Wounds and Words: The Traumatic Memory in Omar El Akkad’s Dystopian
+                  Novel.” <em>Proceedings of The American Studies International Conference (ASIC) 2018</em>,
+                  UGM Digital Press, May 2019, https://digitalpress.ugm.ac.id/article/257. Accessed 15 May 2026.
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
