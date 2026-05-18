@@ -17,8 +17,8 @@
   --accent: #a63d32;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-ui: "Outfit", system-ui, sans-serif;
-  --flip-ms: 1150ms;
-  --flip-ease: cubic-bezier(0.55, 0.04, 0.32, 1);
+  --flip-ms: 980ms;
+  --flip-ease: cubic-bezier(0.42, 0.02, 0.28, 1);
 }
 
 *,
@@ -599,7 +599,13 @@ body {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
+  perspective: 2600px;
+  perspective-origin: 50% 42%;
   z-index: 5;
+}
+
+.page-area.is-flipping {
+  pointer-events: none;
 }
 
 .book-gutter {
@@ -690,29 +696,37 @@ body {
   z-index: 4;
 }
 
-.spread.is-leaving-forward .page-right {
-  visibility: hidden;
+.spread.is-leaving-forward .page-right,
+.spread.is-leaving-backward .page-left {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
-.spread.is-leaving-backward .page-left {
+/* Incoming spread stays underneath as blank paper only — the leaf carries
+   all turning content so the next page never “peeks” early. */
+.spread.is-incoming-forward .page-left,
+.spread.is-incoming-forward .page-right,
+.spread.is-incoming-backward .page-left,
+.spread.is-incoming-backward .page-right {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.spread.is-incoming-forward::before,
+.spread.is-incoming-backward::before {
+  opacity: 0;
   visibility: hidden;
 }
 
 /* "Incoming" = the spread we're flipping TO. Renders underneath the leaf
-   so it's revealed as the leaf's back face becomes hidden past 90deg. */
+   as blank paper until the turn completes. */
 .spread.is-incoming-forward,
 .spread.is-incoming-backward {
   visibility: visible;
   pointer-events: none;
   z-index: 2;
-}
-
-.spread.is-incoming-forward .page-left {
-  visibility: hidden;
-}
-
-.spread.is-incoming-backward .page-right {
-  visibility: hidden;
 }
 
 .spread::before {
@@ -748,16 +762,18 @@ body {
   transform-origin: 0% 50%;
   z-index: 250;
   pointer-events: none;
-  will-change: transform, filter;
-  transform: rotateY(0deg) translateZ(0px);
+  will-change: transform;
+  transform: rotateY(0deg) translateZ(1px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .flip-leaf--forward {
-  transform: rotateY(0deg) translateZ(0px);
+  transform: rotateY(0deg) translateZ(1px);
 }
 
 .flip-leaf--backward {
-  transform: rotateY(-180deg) translateZ(0px);
+  transform: rotateY(-180deg) translateZ(1px);
 }
 
 .flip-leaf--forward.is-running {
@@ -768,38 +784,30 @@ body {
   animation: leafFlipBackward var(--flip-ms) var(--flip-ease) forwards;
 }
 
+/* Transform-only keyframes — animating filter here flattens preserve-3d and
+   makes the page look frozen while the turn “finishes”. */
 @keyframes leafFlipForward {
-  0%   { transform: rotateY(   0deg);
-         filter: drop-shadow(0 0 0 transparent); }
-  18%  { transform: rotateY( -28deg);
-         filter: drop-shadow(-8px 6px 10px rgba(0, 0, 0, 0.22)); }
-  35%  { transform: rotateY( -60deg);
-         filter: drop-shadow(-4px 10px 16px rgba(0, 0, 0, 0.32)); }
-  50%  { transform: rotateY( -92deg);
-         filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.42)); }
-  65%  { transform: rotateY(-120deg);
-         filter: drop-shadow(4px 10px 16px rgba(0, 0, 0, 0.32)); }
-  82%  { transform: rotateY(-152deg);
-         filter: drop-shadow(8px 6px 10px rgba(0, 0, 0, 0.22)); }
-  100% { transform: rotateY(-180deg);
-         filter: drop-shadow(0 0 0 transparent); }
+  0% {
+    transform: rotateY(0deg) translateZ(1px);
+  }
+  42% {
+    transform: rotateY(-92deg) translateZ(18px);
+  }
+  100% {
+    transform: rotateY(-180deg) translateZ(1px);
+  }
 }
 
 @keyframes leafFlipBackward {
-  0%   { transform: rotateY(-180deg);
-         filter: drop-shadow(0 0 0 transparent); }
-  18%  { transform: rotateY(-152deg);
-         filter: drop-shadow(8px 6px 10px rgba(0, 0, 0, 0.22)); }
-  35%  { transform: rotateY(-120deg);
-         filter: drop-shadow(4px 10px 16px rgba(0, 0, 0, 0.32)); }
-  50%  { transform: rotateY( -88deg);
-         filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.42)); }
-  65%  { transform: rotateY( -60deg);
-         filter: drop-shadow(-4px 10px 16px rgba(0, 0, 0, 0.32)); }
-  82%  { transform: rotateY( -28deg);
-         filter: drop-shadow(-8px 6px 10px rgba(0, 0, 0, 0.22)); }
-  100% { transform: rotateY(   0deg);
-         filter: drop-shadow(0 0 0 transparent); }
+  0% {
+    transform: rotateY(-180deg) translateZ(1px);
+  }
+  42% {
+    transform: rotateY(-88deg) translateZ(18px);
+  }
+  100% {
+    transform: rotateY(0deg) translateZ(1px);
+  }
 }
 
 .leaf-face {
@@ -808,10 +816,9 @@ body {
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
   background: var(--paper);
   border-radius: 0 6px 6px 0;
-  /* Strong gutter crease on the spine-side (left edge of the face) so the
-     leaf reads as bound to the binding rather than detached from it. */
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.45),
     inset 18px 0 22px -14px rgba(0, 0, 0, 0.55),
@@ -820,7 +827,7 @@ body {
 }
 
 .leaf-face--back {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(0.5px);
   /* The back face is flipped 180°, so its local LEFT edge corresponds to the
      spine when the leaf is rotated to the left half of the book. Mirror the
      gutter crease shadow accordingly. */

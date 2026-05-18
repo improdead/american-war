@@ -148,6 +148,7 @@ function closeBook() {
   isOpen = false;
   pos = 0;
   flipLock = false;
+  pageArea.classList.remove("is-flipping");
   pageArea.querySelectorAll(".flip-leaf, .flip-shade").forEach((el) => el.remove());
   spreads.forEach((sp) => {
     sp.classList.remove(
@@ -203,6 +204,50 @@ function flashJump() {
     book.classList.remove("book--jump-flash");
     jumpFlashTimer = null;
   }, 420);
+}
+
+function getFlipDurationMs() {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue("--flip-ms");
+  const n = parseInt(raw, 10);
+  return Number.isFinite(n) && n > 0 ? n : 980;
+}
+
+function startFlipAnimation(leaf, shadeFirst, shadeSecond) {
+  pageArea.classList.add("is-flipping");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      leaf.classList.add("is-running");
+      shadeFirst.classList.add("is-running");
+      setTimeout(() => {
+        shadeFirst.classList.remove("is-running");
+        shadeSecond.classList.add("is-running");
+      }, Math.round(getFlipDurationMs() * 0.36));
+    });
+  });
+}
+
+function bindFlipFinish(leaf, shades, onDone) {
+  let settled = false;
+  const finish = () => {
+    if (settled) return;
+    settled = true;
+    leaf.removeEventListener("animationend", onEnd);
+    pageArea.classList.remove("is-flipping");
+    leaf.remove();
+    shades.forEach((el) => el.remove());
+    onDone();
+    flipLock = false;
+    updateHint();
+  };
+  const onEnd = (event) => {
+    if (event.target !== leaf) return;
+    if (event.animationName !== "leafFlipForward" && event.animationName !== "leafFlipBackward") {
+      return;
+    }
+    finish();
+  };
+  leaf.addEventListener("animationend", onEnd);
+  setTimeout(finish, getFlipDurationMs() + 64);
 }
 
 /* Builds a single flip leaf. direction: "forward" or "backward". */
@@ -302,6 +347,8 @@ function goForward() {
     backCover.classList.add("is-underlying");
   }
 
+  void curSpread.offsetWidth;
+
   const { leaf, front, back } = buildLeaf("forward");
   clonePage(curSpread.querySelector(".page-right"), front);
   if (nextSpread) {
@@ -313,25 +360,9 @@ function goForward() {
   const shadeR = buildShade("right");
   const shadeL = buildShade("left");
 
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      leaf.classList.add("is-running");
-      shadeR.classList.add("is-running");
-      setTimeout(() => {
-        shadeR.classList.remove("is-running");
-        shadeL.classList.add("is-running");
-      }, 350);
-    });
-  });
+  startFlipAnimation(leaf, shadeR, shadeL);
 
-  let settled = false;
-  const finish = () => {
-    if (settled) return;
-    settled = true;
-    leaf.removeEventListener("animationend", onEnd);
-    leaf.remove();
-    shadeR.remove();
-    shadeL.remove();
+  bindFlipFinish(leaf, [shadeR, shadeL], () => {
     curSpread.classList.remove("is-leaving-forward");
     if (nextSpread) {
       nextSpread.classList.remove("is-incoming-forward");
@@ -341,15 +372,7 @@ function goForward() {
       backCover.classList.add("is-current");
     }
     pos += 1;
-    flipLock = false;
-    updateHint();
-  };
-  const onEnd = (event) => {
-    if (event.animationName && !event.animationName.startsWith("leafFlip")) return;
-    finish();
-  };
-  leaf.addEventListener("animationend", onEnd);
-  setTimeout(finish, 1700);
+  });
 }
 
 function goBackward() {
@@ -374,6 +397,8 @@ function goBackward() {
   }
   prevSpread.classList.add("is-incoming-backward");
 
+  void (curSpread || prevSpread).offsetWidth;
+
   const { leaf, front, back } = buildLeaf("backward");
   clonePage(prevSpread.querySelector(".page-right"), front);
   if (curIsBackCover) {
@@ -385,39 +410,15 @@ function goBackward() {
   const shadeL = buildShade("left");
   const shadeR = buildShade("right");
 
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      leaf.classList.add("is-running");
-      shadeL.classList.add("is-running");
-      setTimeout(() => {
-        shadeL.classList.remove("is-running");
-        shadeR.classList.add("is-running");
-      }, 350);
-    });
-  });
+  startFlipAnimation(leaf, shadeL, shadeR);
 
-  let settled = false;
-  const finish = () => {
-    if (settled) return;
-    settled = true;
-    leaf.removeEventListener("animationend", onEnd);
-    leaf.remove();
-    shadeL.remove();
-    shadeR.remove();
+  bindFlipFinish(leaf, [shadeL, shadeR], () => {
     if (curSpread) curSpread.classList.remove("is-leaving-backward");
     if (backCover) backCover.classList.remove("is-underlying");
     prevSpread.classList.remove("is-incoming-backward");
     prevSpread.classList.add("is-current");
     pos -= 1;
-    flipLock = false;
-    updateHint();
-  };
-  const onEnd = (event) => {
-    if (event.animationName && !event.animationName.startsWith("leafFlip")) return;
-    finish();
-  };
-  leaf.addEventListener("animationend", onEnd);
-  setTimeout(finish, 1700);
+  });
 }
 
 if (frontCover) {
