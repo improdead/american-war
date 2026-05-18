@@ -1313,6 +1313,14 @@ body {
   margin: 0.5rem 0 0.65rem;
 }
 
+.narration-audio {
+  display: block;
+  width: 100%;
+  margin: 0.45rem 0 0.15rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
 .narration-actions button {
   margin: 0;
 }

@@ -429,7 +429,7 @@ if (frontCover) {
 book.addEventListener("click", (event) => {
   if (!isOpen || event.target.closest(".front-cover")) return;
   if (event.target.closest(INTERACTIVE_ELEMENTS_SELECTOR)) return;
-  if (event.target.closest(".flip-leaf, .flip-shade, .sticker, .fore-edge")) return;
+  if (event.target.closest(".flip-leaf, .flip-shade, .sticker, .fore-edge, .media-block")) return;
 
   const bounds = book.getBoundingClientRect();
   const clickX = event.clientX - bounds.left;
@@ -501,7 +501,7 @@ Albert Gaines is the calm male teacher archetype who tells a grieving girl that 
 
 Motifs and discussion. Trace water, documents, borders, and names. Ask where the novel refuses reader comfort on purpose, and who is allowed moral complexity.
 
-Media and links. Use the publisher video for class context, cite interviews and reviews in MLA 9, and replace this synthesized voice with your own recording when you submit.
+Media and links. Use the publisher video for class context, cite interviews and reviews in MLA 9, and cite the narration file alongside your other media sources.
 
 Works cited. Everything here is meant to sit beside the images it explains—hanging indents, containers, stable URLs.
 
@@ -529,53 +529,35 @@ if (copyNarrationBtn) {
   });
 }
 
-function chunkTextForSpeech(text) {
-  const parts = text
-    .split(/\n\n+/)
-    .map((p) => p.replace(/\n/g, " ").trim())
-    .filter(Boolean);
-  const out = [];
-  let buf = "";
-  const maxLen = 320;
-  for (const p of parts) {
-    if ((buf + " " + p).trim().length <= maxLen) {
-      buf = buf ? `${buf} ${p}` : p;
-    } else {
-      if (buf) out.push(buf);
-      if (p.length <= maxLen) buf = p;
-      else {
-        const sentences = p.split(/(?<=[.!?])\s+/);
-        let sbuf = "";
-        for (const s of sentences) {
-          if ((sbuf + " " + s).trim().length <= maxLen) sbuf = sbuf ? `${sbuf} ${s}` : s;
-          else {
-            if (sbuf) out.push(sbuf.trim());
-            sbuf = s;
-          }
-        }
-        buf = sbuf;
-      }
-    }
-  }
-  if (buf) out.push(buf);
-  return out;
+const narrationAudio = document.getElementById("narrationAudio");
+
+function syncNarrationPlayButton() {
+  if (!playNarrationButton || !narrationAudio) return;
+  const playing = !narrationAudio.paused;
+  playNarrationButton.textContent = playing ? "Pause" : "Play narration";
+  playNarrationButton.setAttribute("aria-label", playing ? "Pause narration" : "Play narration");
 }
 
-const narrationChunks = chunkTextForSpeech(NARRATION_FULL);
-
-if (playNarrationButton && stopNarrationButton && "speechSynthesis" in window) {
+if (narrationAudio && playNarrationButton && stopNarrationButton) {
   playNarrationButton.addEventListener("click", () => {
-    window.speechSynthesis.cancel();
-    narrationChunks.forEach((chunk) => {
-      const u = new SpeechSynthesisUtterance(chunk);
-      u.rate = 0.98;
-      window.speechSynthesis.speak(u);
-    });
+    if (narrationAudio.paused) {
+      narrationAudio.play().catch(() => {});
+    } else {
+      narrationAudio.pause();
+    }
+    syncNarrationPlayButton();
   });
 
   stopNarrationButton.addEventListener("click", () => {
-    window.speechSynthesis.cancel();
+    narrationAudio.pause();
+    narrationAudio.currentTime = 0;
+    syncNarrationPlayButton();
   });
+
+  narrationAudio.addEventListener("play", syncNarrationPlayButton);
+  narrationAudio.addEventListener("pause", syncNarrationPlayButton);
+  narrationAudio.addEventListener("ended", syncNarrationPlayButton);
+  syncNarrationPlayButton();
 }
 
 if (zoomInBtn && zoomOutBtn && zoomResetBtn) {
@@ -746,11 +728,6 @@ document.querySelectorAll(".toc-link").forEach((btn) => {
     jumpToSpread(n);
   });
 });
-
-if (playNarrationButton && !("speechSynthesis" in window)) {
-  playNarrationButton.disabled = true;
-  playNarrationButton.title = "Speech synthesis is not available in this browser.";
-}
 
 attachForeEdgeHints();
 initStickerDrag();
