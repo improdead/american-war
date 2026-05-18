@@ -93,20 +93,50 @@
                     <span class="sticker__label">how to use</span>
                     Click the cover to open. Then tap the right page (or →) to flip forward, left page (or ←) to flip back. Stickers like this one are my notes!
                   </aside>
-                  <ol class="toc">
-                    <li>Opening, contents &amp; feminist MLA sheet</li>
-                    <li>Summary &amp; imagined setting</li>
-                    <li>Plot pressure &amp; moral stakes</li>
-                    <li>Climate collapse &amp; remote war</li>
-                    <li>Camps &amp; cycles of revenge</li>
-                    <li>Thesis &amp; essay subtopics</li>
-                    <li>Author biography &amp; portrait</li>
-                    <li>Sarat &amp; Benjamin Chestnut</li>
-                    <li>Martina &amp; Albert Gaines</li>
-                    <li>Motifs &amp; discussion prompts</li>
-                    <li>Video, audio, curated links</li>
-                    <li>Works cited (MLA 9)</li>
-                  </ol>
+                  <nav class="toc-wrap" aria-label="Jump to spread">
+                    <p class="toc-hint">Tap a line to open the book there (instant jump).</p>
+                    <ol class="toc">
+                      <li>
+                        <button type="button" class="toc-link" data-spread="0">Opening, contents &amp; feminist MLA sheet</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="1">Summary &amp; imagined setting</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="2">Plot pressure &amp; moral stakes</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="3">Climate collapse &amp; remote war</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="4">Camps &amp; cycles of revenge</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="5">Thesis &amp; essay subtopics</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="6">Author biography &amp; portrait</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="7">Sarat &amp; Benjamin Chestnut</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="8">Martina &amp; Albert Gaines</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="9">Motifs &amp; discussion prompts</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="10">Video, audio, curated links</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link" data-spread="11">Works cited (MLA 9)</button>
+                      </li>
+                      <li>
+                        <button type="button" class="toc-link toc-link--muted" data-spread="12">Back cover</button>
+                      </li>
+                    </ol>
+                  </nav>
                 </section>
               </section>
 
@@ -570,9 +600,19 @@
                     <span class="page-num">20</span>
                   </div>
                   <div class="media-block">
-                    <p>Placeholder narration (replace with your recorded voice for full credit).</p>
-                    <button type="button" id="playNarration">Play</button>
-                    <button type="button" id="stopNarration">Stop</button>
+                    <p>
+                      Below is the full desk-edition narration script (also spoken when you press Play).
+                      Drag any sticky note on earlier pages; positions save in this browser.
+                    </p>
+                    <div class="narration-actions">
+                      <button type="button" id="playNarration">Play narration</button>
+                      <button type="button" id="stopNarration">Stop</button>
+                      <button type="button" id="copyNarration">Copy script</button>
+                    </div>
+                    <details class="narration-script-details">
+                      <summary>Full narration script (for recording)</summary>
+                      <pre class="narration-script" id="narrationScriptPre"></pre>
+                    </details>
                   </div>
                   <ul class="link-list">
                     <li>
@@ -680,13 +720,27 @@
               </section>
 
               <section class="cover back-cover" aria-label="Back cover">
-                <h2>Omar El Akkad</h2>
-                <p>
-                  <strong>American War</strong> asks what happens when a society forgets how to
-                  imagine the enemy as a neighbor. This desk edition keeps citations adjacent to the
-                  imagery they explain.
-                </p>
-                <p class="publisher-mark">Knopf · Vintage</p>
+                <div class="back-cover__paper">
+                  <p class="back-cover__kicker">Desk folio · close by tapping the left edge</p>
+                  <h2 class="back-cover__title">American War</h2>
+                  <p class="back-cover__author">Omar El Akkad</p>
+                  <div class="back-cover__rule" aria-hidden="true"></div>
+                  <p class="back-cover__lede">
+                    This scrapbook closes the loop: climate displacement, camp logic, and the gendered
+                    work of survival sit next to MLA-ready citations—so the argument never floats free of
+                    its sources.
+                  </p>
+                  <ul class="back-cover__bullets">
+                    <li>Twelve spreads · sticky notes you can drag</li>
+                    <li>Contents jumps · fore-edge hints on every spread</li>
+                    <li>Feminist MLA sheet opens from the front matter</li>
+                  </ul>
+                  <p class="back-cover__tagline">
+                    “When your country asks you to kill for it, your only question should be how high.”
+                    <span class="back-cover__cite">—the novel’s creed, spoken to a child</span>
+                  </p>
+                  <p class="back-cover__publisher">Alfred A. Knopf · New York · 2017</p>
+                </div>
               </section>
             </article>
           </div>
