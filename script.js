@@ -307,7 +307,7 @@ function goForward() {
     finish();
   };
   leaf.addEventListener("animationend", onEnd);
-  setTimeout(finish, 1400);
+  setTimeout(finish, 1700);
 }
 
 function goBackward() {
@@ -375,7 +375,7 @@ function goBackward() {
     finish();
   };
   leaf.addEventListener("animationend", onEnd);
-  setTimeout(finish, 1400);
+  setTimeout(finish, 1700);
 }
 
 if (frontCover) {
