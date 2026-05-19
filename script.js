@@ -578,16 +578,16 @@ if (zoomInBtn && zoomOutBtn && zoomResetBtn) {
 
 const EDGE_HINT_PAIRS = [
   { L: "Secret handshake: the essay opens without losing your place.", R: "Try a TOC jump before you flip—two different kinds of magic." },
-  { L: "Louisiana’s scale in the novel is borrowed from real floods, not named as prophecy.", R: "If you cite the aerial photo, name it as parallel, not as storyboard." },
-  { L: "Watch who gets full sentences of motive versus who becomes a headline.", R: "That pull quote is a creed spoken to a child—note the power imbalance." },
-  { L: "Climate is not wallpaper here; it decides who eats and who moves.", R: "Remote war is cheap for the launcher, total for the person under the sensor." },
-  { L: "Queues are politics: time is the state’s rudest argument.", R: "Pair revenge cycles with Enloe on invisible camp labor—your paragraph will glow." },
-  { L: "A thesis someone can disagree with beats a summary dressed as a claim.", R: "Those subtopics are a menu: pick three scenes, not twelve." },
-  { L: "El Akkad drove the South and sketched coastlines at minus sea level.", R: "The portrait is a real photograph—credit it like any other witness." },
-  { L: "Sarat’s name is shortened before the world can finish naming her.", R: "Benjamin throws her choices into relief—watch who gets repair arcs." },
-  { L: "Martina is the buffer between grief and doctrine; notice when she exits.", R: "Gaines believes his own lines—that’s why they work on Sarat." },
-  { L: "Mark every flood and crossing; water is the novel’s emotional metronome.", R: "Discussion prompts are blades: answer the one that scares you most." },
-  { L: "YouTube embeds still need MLA: channel, date, stable URL.", R: "Record your own voice over this script for full credit—listeners forgive robots less than teachers do." },
+  { L: "Louisiana isn't prophecy here. The novel just borrows its disaster for impact.", R: "If you mention the photo, use it as a thematic comparison, not a literal storyboard." },
+  { L: "Look closely—who gets to say why they acted, and who gets reduced to a headline?", R: "That quote is the heart of the book's power dynamics." },
+  { L: "Climate isn't just wallpaper; it decides who stays alive and who's forced out.", R: "Remote war is cheap if you're pushing buttons, but total if you're on the ground." },
+  { L: "Queues are politics—time is the bluntest tool a state uses against you.", R: "If you want your revenge paragraphs to pop, connect them to Enloe's points about invisible camp labor." },
+  { L: "A thesis someone can disagree with beats a summary dressed as a claim.", R: "Pick three scenes, don't try to cover everything." },
+  { L: "He mapped the South himself, dropping the coast low to match the climate disaster.", R: "Credit the portrait—it's an actual photograph, not a generic image." },
+  { L: "Sarat shortens her name before the world finishes it, staking out her own space.", R: "Benjamin's arc makes her decisions stand out—watch who really gets to fix things." },
+  { L: "Watch the moment when Martina exits the stage—that opens the space for doctrine.", R: "Gaines believes his own message, and that's exactly why Sarat is persuaded." },
+  { L: "Every flood, every crossing—if you mark those, you'll see how water keeps the book's emotional rhythm.", R: "Pick whichever prompt challenges you most." },
+  { L: "Credit every YouTube embed using MLA: channel, date, stable URL.", R: "Record your own narration for full credit—teachers are more forgiving about slight mistakes than robotic voices." },
   { L: "Hanging indent half an inch—your professor will notice if you fake it.", R: "LOC portraits are cited prompts, not casting calls—say that once in your paper." },
 ];
 
