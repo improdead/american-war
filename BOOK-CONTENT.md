@@ -1,11 +1,22 @@
 # American War — Desk Edition
 ## Complete book content for review
 
-This document lists **every word of reader-facing text** in the desk folio, in page order. Use it to review, edit, or cite the project without opening the HTML.
+This document lists **every word of reader-facing text** in the desk folio, in page order.
 
 **Author of this desk edition:** Dekai Li  
 **Source files:** `index.html`, `script.js`  
 **Last synced:** May 2026
+
+### What was humanized (your edit pass)
+
+| Updated | Not rewritten |
+|--------|----------------|
+| Spreads **1–10** — body copy, stickers, captions | **Spread 0** (title/contents) — original tone |
+| **Fore-edge hints** on all spreads | **Full feminist MLA essay** — body paragraphs still original academic prose |
+| **Media page** intro (p. 20) | **Narration script** in `script.js` — still pre-humanization draft |
+| **MLA essay header** — Dekai Li, Haughton, Sheleah, ENG4U1-21 | **Works Cited**, **back cover** — unchanged |
+
+Your humanized paste covered **folio pages and notes**, not the long overlay essay. Only the essay’s **name / professor / course line** was updated.
 
 ---
 
@@ -82,7 +93,7 @@ Tap a line to open the book there (instant jump).
 
 ---
 
-## Spread 1 — Summary
+## Spread 1 — Summary *(humanized)*
 
 **Section kicker:** Summary
 
@@ -90,34 +101,32 @@ Tap a line to open the book there (instant jump).
 
 **Summary**
 
-In a splintered United States gutted by climate failure and a second civil war, *American War* tracks Sarat Chestnut from a half-drowned Louisiana childhood into the disciplined cruelty of Camp Patience—and beyond, into the mythology of retribution.
+In a fractured America crushed by climate disasters and torn apart by a second civil war, *American War* follows Sarat Chestnut as she grows up. Her childhood in Louisiana is almost underwater, and when her family lands in Camp Patience, Sarat learns the brutal politics behind survival and revenge.
 
-El Akkad treats speculative fiction as a forensic lens: every drone shadow and ration line is stitched from real histories displaced onto American geography.
-
-The novel spans roughly the years 2074–2095 of an imagined Second American Civil War. The North enforces a fossil-fuel ban; a holdout Southern bloc—Mississippi, Alabama, Georgia, and the half-submerged remnants of Louisiana and Florida—refuses. El Akkad treats the conflict the way reporters treat real ones: through small rooms, ration lines, and the language people use when they are too tired to be careful.
+El Akkad uses speculative fiction like a microscope: he takes history we already know—drones overhead, waiting in ration lines—and drops it onto American soil in the future. The book covers about twenty years, from 2074 to 2095. The North bans fossil fuels, while the South—Mississippi, Alabama, Georgia, and what's left of Louisiana and Florida—won't let go. The war's not shown in big, heroic sweeps. Instead, you see cramped rooms, nervous conversations, tired people just trying to get through another day.
 
 **Sticker — key term:**  
-**Speculative fiction:** not prediction—a thought experiment that pulls real history out of its usual zip code so we're forced to see it freshly.
+Speculative fiction isn't about trying to predict the future. It's more about throwing real history into a new place, so it feels unfamiliar and forces you to look again.
 
 ### Page 2 (right)
 
 **Setting & timeline**
 
-Fossil-fuel bans, coastal loss, and secessionist violence braid together until “security” becomes a word families mouth while packing go-bags.
+The setting's shaped by bans on oil, flooded coastlines, and violence as the South splits away. "Security" becomes just another word families say while grabbing bags and getting ready to run.
 
-**Image caption:** 2016 Louisiana floods—cited thematic parallel, not a literal storyboard frame.
+**Image caption:** The 2016 Louisiana floods—not a scene from the story, just a reference point for mood and scale.
 
-Real floods of 2016 inundated 60,000 homes in three days and forced 30,000 rescues. El Akkad doesn't name that event; he loans its *scale* to a future in which storms like it arrive every season and the government has long since stopped pretending it can keep up.
+In three days, real floods hit 60,000 homes and forced 30,000 rescues. El Akkad never names that disaster directly, but he borrows its chaos for a future where storms like that keep coming and nobody expects the government to catch up.
 
 **Sticker — image note:**  
-I picked this photo because the novel's opening pages describe water reaching the second-story porch—exactly this kind of slow, total drowning.
+That image? I picked it because the book's first chapters talk about floodwaters creeping up to a second-floor porch. That kind of slow, relentless disaster—it matches.
 
-**Fore-edge hint (left):** Louisiana's scale in the novel is borrowed from real floods, not named as prophecy.  
-**Fore-edge hint (right):** If you cite the aerial photo, name it as parallel, not as storyboard.
+**Fore-edge hint (left):** Louisiana isn't prophecy here. The novel just borrows its disaster for impact.  
+**Fore-edge hint (right):** If you mention the photo, use it as a thematic comparison, not a literal storyboard.
 
 ---
 
-## Spread 2 — Narrative stakes
+## Spread 2 — Narrative stakes *(humanized)*
 
 **Section kicker:** Narrative stakes
 
@@ -125,9 +134,9 @@ I picked this photo because the novel's opening pages describe water reaching th
 
 **Plot & pressure**
 
-Each relocation tightens the Chestnuts' choices: stay lawful, stay human, or accept the camp's arithmetic that pain must be banked until it can be spent.
+Each time the Chestnuts relocate, their options shrink. Do they stay lawful, keep their humanity, or buy into the camp's harsh belief that pain is a kind of currency, waiting to be spent?
 
-Sarat's mentors speak softly because they know volume is unnecessary when a child is already listening for orders.
+Sarat listens carefully. Her mentors know they don't have to shout—she's already tuned in, waiting to be told what to do.
 
 ### Page 4 (right)
 
@@ -135,19 +144,17 @@ Sarat's mentors speak softly because they know volume is unnecessary when a chil
 
 > “He had taught her long ago that when your country asks you to kill for it, your only question should be how high.”
 
-The novel asks whether revenge can ever be hygienic once it becomes a civic style—something citizens rehearse in language before they rehearse it in blood.
-
-El Akkad lets that question sit on the page without an answer. Sarat does not deliver a thesis statement; she delivers consequences. The pull quote opposite is the closest the novel gets to a creed, and it's spoken to a child.
+The novel doesn't answer the question about revenge. It just hangs there: Can revenge ever be clean, once a country turns it into routine, something you recite before acting it out for real? Sarat doesn't give a speech—she gives you results. That quote above is as close as the novel gets to a motto, and it's directed at a child.
 
 **Sticker — reading note:**  
-Watch how often *obedience* gets dressed up as *love* in this novel. That swap is the engine.
+Watch how often the book disguises obedience as love. That's the fuel.
 
-**Fore-edge hint (left):** Watch who gets full sentences of motive versus who becomes a headline.  
-**Fore-edge hint (right):** That pull quote is a creed spoken to a child—note the power imbalance.
+**Fore-edge hint (left):** Look closely—who gets to say why they acted, and who gets reduced to a headline?  
+**Fore-edge hint (right):** That quote is the heart of the book's power dynamics.
 
 ---
 
-## Spread 3 — Climate & machines
+## Spread 3 — Climate & machines *(humanized)*
 
 **Section kicker:** Climate & machines
 
@@ -155,32 +162,32 @@ Watch how often *obedience* gets dressed up as *love* in this novel. That swap i
 
 **Climate & inequality**
 
-Climate grief is not backdrop; it is plot. Who owns high ground, who inherits mold and asthma, who pays for seawalls with their tax bills or their lungs—these questions decide which maps get redrawn first.
+Climate isn't just scenery here—it's the whole story. Who gets a dry house, who inherits mold and asthma, who pays for seawalls? Those questions decide which neighborhoods get erased. The Chestnuts live in a stilt house right by the water, relying on climate before bureaucracy for basics like food and a dry bed.
 
-The Chestnut family lives on a stilt-house at the edge of a drowned Louisiana parish; their access to clean food and dry beds is rationed by climate first and bureaucracy second. The novel makes a feminist point without slogans: when infrastructure fails, the labor of keeping people alive falls onto households, and inside households it falls onto women.
+Here's the feminist angle: When infrastructure fails, the real work of survival lands on families—and inside each family, it piles onto women.
 
-Compare with Naomi Klein's *This Changes Everything* and Rebecca Solnit's *A Paradise Built in Hell* for nonfiction parallels you can cite alongside El Akkad.
+Want nonfiction parallels? Look at Naomi Klein's *This Changes Everything* or Rebecca Solnit's *A Paradise Built in Hell*. They match up.
 
 **Sticker — essay tip:**  
-Don't treat climate as *setting*. In *American War* it is the precondition for every political choice.
+Don't treat climate as just a backdrop. In *American War*, it's the driver for every political move.
 
 ### Page 6 (right)
 
 **Remote war**
 
-Drones, checkpoints, and rumor networks translate occupation grammar into a domestic key. Readers recognize the choreography even when the zip code is fictional.
+Drones, checkpoints, and rumor networks—all the old tricks from war zones are adapted for home use. Readers recognize the patterns, even when the map's made-up.
 
-**Image caption:** Displacement infrastructure—context for reading Camp Patience's logistics.
+**Image caption:** Infrastructure for displacement—the background for Camp Patience's operation.
 
 **Sticker — term card:**  
-**Remote war** — war fought at distance: drones, sensors, contractors. Cheap for the launching state, total for the people on the ground.
+**Remote war** means fighting from afar: drones, sensors, contractors. Easy for the side launching it, devastating for people underneath.
 
-**Fore-edge hint (left):** Climate is not wallpaper here; it decides who eats and who moves.  
-**Fore-edge hint (right):** Remote war is cheap for the launcher, total for the person under the sensor.
+**Fore-edge hint (left):** Climate isn't just wallpaper; it decides who stays alive and who's forced out.  
+**Fore-edge hint (right):** Remote war is cheap if you're pushing buttons, but total if you're on the ground.
 
 ---
 
-## Spread 4 — Camps & revenge
+## Spread 4 — Camps & revenge *(humanized)*
 
 **Section kicker:** Camps & revenge
 
@@ -188,32 +195,32 @@ Drones, checkpoints, and rumor networks translate occupation grammar into a dome
 
 **Camp Patience**
 
-Camps compress time: boredom becomes radicalization fuel; charity becomes surveillance; kindness becomes a ledger. Sarat learns to read power because she cannot stop staring at it.
+Camps distort time. Boredom turns into anger, kindness becomes currency, charity morphs into surveillance. Sarat studies power because, really, she can't stop watching it.
 
-The novel's most devastating sequences happen in line: line for water, line for inoculations, line to register. El Akkad treats waiting as politics—hours of waiting are how a state communicates that your time is worth less than its paperwork.
+Some of the book's harshest moments happen in line. Waiting for water, shots, registration—waiting itself becomes a kind of politics. The longer you wait, the more the state tells you your time doesn't matter.
 
-Camp Patience is not a metaphor for one specific real-world site; it borrows the grammar of many. Read it next to journalism on refugee camps in Lebanon, Bangladesh, or the Greek islands, and the choreography rhymes.
+Camp Patience doesn't stand in for just one real camp. It borrows bits from everywhere—Lebanon, Bangladesh, Greek islands. You can see the similarities if you read some journalism about those places.
 
 **Sticker — concept:**  
-The camp is the novel's university. Sarat is its star student. Albert Gaines is the recruiter who tells her the curriculum.
+The camp is like a university, Sarat is its standout student, and Albert Gaines is the recruiter with the syllabus.
 
 ### Page 8 (right)
 
 **Revenge cycles**
 
-The novel's ethical spine is simple to state and brutal to practice: every act of violence mortgages the next generation's peace. Trauma unprocessed becomes policy.
+Here's the simple but brutal truth in the book: every act of violence cripples the next generation's peace. Trauma that isn't dealt with turns into policy.
 
-The cycle has a feminist shape: men dispense the ideology, women keep the household alive long enough for the next round, and the people indexed as “collateral” are almost always the ones doing the unpaid care work that the state has abandoned. *American War* doesn't say this in slogans; it just keeps the camera on it until you have to.
+There's a feminist layer: Men supply the ideology, women do the work to keep the household afloat, and "collateral" victims—usually women—are the ones performing unpaid care after the state walks away. The novel doesn't shout this. It just keeps showing it so you notice.
 
 **Sticker — theory hook:**  
-Pair this page with **Cynthia Enloe** on how militaries depend on women's invisible work, and with **Judith Butler** on grievable lives.
+Pair this with **Cynthia Enloe** on how militaries depend on invisible women's labor, and with **Judith Butler** on whose lives are seen as grievable.
 
-**Fore-edge hint (left):** Queues are politics: time is the state's rudest argument.  
-**Fore-edge hint (right):** Pair revenge cycles with Enloe on invisible camp labor—your paragraph will glow.
+**Fore-edge hint (left):** Queues are politics—time is the bluntest tool a state uses against you.  
+**Fore-edge hint (right):** If you want your revenge paragraphs to pop, connect them to Enloe's points about invisible camp labor.
 
 ---
 
-## Spread 5 — Thesis & essay
+## Spread 5 — Thesis & essay *(humanized)*
 
 **Section kicker:** Thesis & essay
 
@@ -221,35 +228,35 @@ Pair this page with **Cynthia Enloe** on how militaries depend on women's invisi
 
 **Thesis**
 
-**Thesis:** In *American War*, El Akkad stages climate collapse and civil war through a girl who becomes a woman inside systems that weaponize care, grief, and survival labor—showing how feminist questions about whose bodies count as “civilian,” whose anger is legible, and who gets to tell the story are not accessories to geopolitics but its engine room.
+El Akkad puts climate collapse and civil war right in front of us, showing it through Sarat—a girl who grows up in systems that turn care, pain, and survival tasks into weapons. He asks feminist questions: Whose bodies count as civilian? Whose anger makes sense? Who gets to control the story? These aren't bonus details in geopolitics; they're the foundations.
 
-Your paper can braid Sarat's arc with feminist international relations (how militaries depend on women's invisible work) and with narrative ethics (who frames Sarat as monster versus witness).
+You can work Sarat's story into feminist international relations (how militaries rely on invisible women's work) and narrative ethics (who labels Sarat as monster, who calls her witness).
 
-A workable structure: (1) introduce the gendered terms feminist scholarship has given us, (2) read three scenes through them, (3) argue what changes when we stop treating Sarat's violence as an aberration and start treating it as the predictable output of the systems around her.
+Here's one way to build your paper: First, set up the gendered terms that feminist scholars use. Then, use three scenes from the book, analyzing them through that lens. Finally, argue that seeing Sarat's violence as the system's output—not an exception—changes everything.
 
 **Sticker — thesis tip:**  
-Strong thesis = a claim someone could reasonably disagree with. “Sarat is shaped by gendered violence” is too tame. Try: “the novel argues that ungendering war is a precondition for ending it.”
+A strong thesis is one people will argue about. "Sarat is shaped by gendered violence" is too bland. Try: "The book says that making war less gendered is the key to ending it."
 
 ### Page 10 (right)
 
 **Feminist subtopics**
 
-- **Maternal politics:** Martina's labor, risk, and refusal.
-- **Camp life:** gendered vulnerability, surveillance, rumor.
-- **Archives of pain:** Benjamin's narration vs. Sarat's voice.
+- **Maternal politics:** Martina's labor, risk, and her refusals.
+- **Camp life:** vulnerabilities, surveillance, rumor.
+- **Archives of pain:** Benjamin's narration vs. Sarat's.
 - **Women & political violence:** agency, coercion, spectacle.
-- **Care under collapse:** who feeds the camp; who is permitted grief.
-- **Witness vs. weapon:** the diary fragment as counter-archive.
+- **Care under collapse:** who feeds, who's allowed to grieve.
+- **Witness vs. weapon:** the diary fragment as a counter-archive.
 
 **Sticker — cite these:**  
-Enloe (2014), Butler (1990), Gentry & Sjoberg (2015), Rizqa (2018). They're already on the Works Cited page—use them.
+Enloe (2014), Butler (1990), Gentry & Sjoberg (2015), Rizqa (2018). They're already listed—use them.
 
 **Fore-edge hint (left):** A thesis someone can disagree with beats a summary dressed as a claim.  
-**Fore-edge hint (right):** Those subtopics are a menu: pick three scenes, not twelve.
+**Fore-edge hint (right):** Pick three scenes, don't try to cover everything.
 
 ---
 
-## Spread 6 — Author
+## Spread 6 — Author *(humanized)*
 
 **Section kicker:** Author
 
@@ -257,25 +264,25 @@ Enloe (2014), Butler (1990), Gentry & Sjoberg (2015), Rizqa (2018). They're alre
 
 **About the author**
 
-Omar El Akkad is an Egyptian-Canadian novelist and journalist. His reporting from conflict zones informs the tactile credibility of *American War*—the way bodies orient in heat, how checkpoints smell, how official language softens murder.
+Omar El Akkad is Egyptian-Canadian—a novelist and a journalist. He takes what he's seen in conflict zones and brings it to *American War*, right down to how bodies move, how checkpoints smell, and how official language disguises violence.
 
-He covered the war in Afghanistan, the trial of Omar Khadr, the Arab Spring, and the Ferguson protests for *The Globe and Mail*. *American War* (2017) was his first novel; *What Strange Paradise* (2021) followed, winning the Giller Prize. His 2025 book *One Day, Everyone Will Have Always Been Against This* argues that the West's vocabulary of human rights has been quietly bent into a tool for excusing the violence it once condemned.
+He reported on Afghanistan, Omar Khadr's trial, the Arab Spring, and Ferguson, all for *The Globe and Mail*. *American War* (2017) is his first novel. After that came *What Strange Paradise*, which won the Giller Prize. In 2025, his next book argues that "human rights" language in the West has quietly become a tool to excuse violence, not stop it.
 
 **Sticker — good to know:**  
-El Akkad built the geography of *American War* by literally driving the U.S. South, sketching maps that take the coastline at minus 6–15 feet of sea level.
+He literally drove through the U.S. South, sketching maps that rewind the coastline 6–15 feet below sea level. That's how he built the geography for *American War*.
 
 ### Page 12 (right)
 
 **Portrait**
 
-**Image caption:** Frypie, Wikimedia Commons (CC BY-SA 4.0)—actual photograph of the author.
+**Image caption:** Frypie, Wikimedia Commons (CC BY-SA 4.0)—real photo of El Akkad.
 
-**Fore-edge hint (left):** El Akkad drove the South and sketched coastlines at minus sea level.  
-**Fore-edge hint (right):** The portrait is a real photograph—credit it like any other witness.
+**Fore-edge hint (left):** He mapped the South himself, dropping the coast low to match the climate disaster.  
+**Fore-edge hint (right):** Credit the portrait—it's an actual photograph, not a generic image.
 
 ---
 
-## Spread 7 — Characters I
+## Spread 7 — Characters I *(humanized)*
 
 **Section kicker:** Characters I
 
@@ -283,16 +290,16 @@ El Akkad built the geography of *American War* by literally driving the U.S. Sou
 
 **Sarat Chestnut**
 
-Fictional character—archival portrait below is representational, not biographical.
+She's a fictional character—archival image below stands in for her, not as her biography.
 
 **Image caption:** Library of Congress, Prints & Photographs Division.
 
-Protagonist: fierce curiosity weaponized by mentors; her arc tests how empathy survives propaganda. She is a queer Black girl in a country that has stopped pretending to extend protection, raised by water and reshaped by camp.
+She's the main character. Her fierce curiosity is sharpened by her mentors—her journey tests whether empathy can survive constant propaganda. She's a queer Black girl in a country that's quit pretending it's safe, raised near water and changed by the camp.
 
-Track three of her recurring traits: *asking questions adults won't answer*, *collecting wounded things*, and *refusing to flinch on command*. Each one is a survival trait that her recruiters later read as raw material.
+Focus on three traits: asking hard questions adults dodge, saving wounded things, refusing to flinch. Each one is survival, later used as material for her recruiters.
 
 **Sticker — character note:**  
-Sarat's name is short for Sara T. The shortening is itself political—she rewrites herself before anyone can finish naming her.
+Sarat's full name is Sara T. But she shortens it—politically. She's rewriting herself before anyone else can.
 
 ### Page 14 (right)
 
@@ -300,14 +307,14 @@ Sarat's name is short for Sara T. The shortening is itself political—she rewri
 
 **Image caption:** Library of Congress, Prints & Photographs Division.
 
-Brother and foil: carries the family's hope for repair; throws Sarat's choices into relief.
+He's Sarat's brother and her opposite. He carries the hope for fixing things and throws Sarat's choices into sharper relief.
 
-**Fore-edge hint (left):** Sarat's name is shortened before the world can finish naming her.  
-**Fore-edge hint (right):** Benjamin throws her choices into relief—watch who gets repair arcs.
+**Fore-edge hint (left):** Sarat shortens her name before the world finishes it, staking out her own space.  
+**Fore-edge hint (right):** Benjamin's arc makes her decisions stand out—watch who really gets to fix things.
 
 ---
 
-## Spread 8 — Characters II
+## Spread 8 — Characters II *(humanized)*
 
 **Section kicker:** Characters II
 
@@ -317,12 +324,12 @@ Brother and foil: carries the family's hope for repair; throws Sarat's choices i
 
 **Image caption:** Library of Congress, Prints & Photographs Division.
 
-Mother: survival ethics under collapse; grief reshapes her boundaries.
+Mother—a model for survival ethics, grief, and boundary setting.
 
-Martina is the novel's clearest case of *maternal labor as politics*: she rations calories, manages fear, translates threats into instructions a child can obey, and refuses, again and again, to let her family be conscripted into someone else's war. Her death at Camp Patience is not a plot beat; it is the loss of the only adult who was actively shielding Sarat from recruitment.
+Martina is the clearest case of maternal care becoming political. She rations food, manages fear, translates danger into instructions a kid can follow, and keeps resisting turning her family into someone else's soldiers. When she dies at Camp Patience, it isn't just plot; it's the loss of Sarat's shield against recruitment.
 
 **Sticker — feminist read:**  
-Martina's arc is the strongest argument the novel makes for *care as resistance*. Lose her, lose the buffer.
+Martina's story is the best argument for care as resistance. When she's gone, the last buffer vanishes.
 
 ### Page 16 (right)
 
@@ -330,19 +337,19 @@ Martina's arc is the strongest argument the novel makes for *care as resistance*
 
 **Image caption:** Library of Congress, Prints & Photographs Division.
 
-Mentor figure: knowledge offered as care—and as leverage.
+Mentor—his knowledge comes across as care, but also as leverage.
 
-Albert Gaines is the recognizable archetype of the calm male teacher who tells a grieving girl that the world makes sense if she will only follow him into the next room. His pedagogy looks like attention. It is recruitment. The novel does not let him off the hook for that, but it also does not flatten him into villainy: he believes what he is saying, which is what makes it dangerous.
+Gaines is the classic calm male teacher, convincing a grieving girl that the world makes sense if she follows him. He looks like he's just paying attention, but really, he's recruiting. The book doesn't let him off the hook, yet he's not painted as pure evil—he genuinely believes what he says, which makes him dangerous.
 
 **Sticker — foil:**  
-Gaines is Martina's ideological opposite: she gives care without doctrine; he gives doctrine dressed up as care.
+Gaines is Martina's opposite. She gives real care, no strings; he coats doctrine with concern.
 
-**Fore-edge hint (left):** Martina is the buffer between grief and doctrine; notice when she exits.  
-**Fore-edge hint (right):** Gaines believes his own lines—that's why they work on Sarat.
+**Fore-edge hint (left):** Watch the moment when Martina exits the stage—that opens the space for doctrine.  
+**Fore-edge hint (right):** Gaines believes his own message, and that's exactly why Sarat is persuaded.
 
 ---
 
-## Spread 9 — Motifs & discussion
+## Spread 9 — Motifs & discussion *(humanized)*
 
 **Section kicker:** Motifs & discussion
 
@@ -350,34 +357,34 @@ Gaines is Martina's ideological opposite: she gives care without doctrine; he gi
 
 **Motifs to trace**
 
-- **Water:** drowning, baptism, washing evidence away.
-- **Animals & augury:** omens vs. superstition vs. realism.
-- **Documents:** letters, orders, rumors—who gets to archive truth?
-- **Bodies:** injury as text other characters misread on purpose.
-- **Borders:** checkpoints rehearsed first in conversation, then in concrete.
-- **Names:** who is allowed a full one; who is shortened by the state.
+- **Water:** Drowning, baptism, cleaning up evidence.
+- **Animals & augury:** Do omens matter? Are they superstition or realism?
+- **Documents:** Letters, orders, rumors—who controls the archive?
+- **Bodies:** Injuries as texts that others choose to misread.
+- **Borders:** First rehearsed as conversation, then built in concrete.
+- **Names:** Who gets a full name, who gets theirs cut short by the state.
 
 **Sticker — motif:**  
-Water shows up at every emotional pivot. Mark every flood, every river crossing, every dampness on a wall. The pattern will write your paragraph.
+Water pulses through every emotional moment. Track floods, rivers, and wet walls. The pattern will help you write a strong paragraph.
 
 ### Page 18 (right)
 
 **Discussion prompts**
 
-Where does the novel refuse reader comfort on purpose?
+Where does the book deliberately deny comfort to the reader?
 
-Who is allowed moral complexity, and who gets flattened into symbol?
+Who gets moral complexity, and who gets flattened into a symbol?
 
-Which real-world policies rhyme with El Akkad's future laws?
+Which real-world policies line up with El Akkad's imagined laws?
 
-How would you rewrite the ending for mercy without sentimentality?
+How would you rework the ending—with mercy, minus sentimentality?
 
-**Fore-edge hint (left):** Mark every flood and crossing; water is the novel's emotional metronome.  
-**Fore-edge hint (right):** Discussion prompts are blades: answer the one that scares you most.
+**Fore-edge hint (left):** Every flood, every crossing—if you mark those, you'll see how water keeps the book's emotional rhythm.  
+**Fore-edge hint (right):** Pick whichever prompt challenges you most.
 
 ---
 
-## Spread 10 — Media
+## Spread 10 — Media *(humanized)*
 
 **Section kicker:** Media
 
@@ -385,16 +392,16 @@ How would you rewrite the ending for mercy without sentimentality?
 
 **Publisher video**
 
-Use for class context; cite in Works Cited.
+Use it in class, list it in your Works Cited.
 
 **Sticker — cite it:**  
-For a YouTube video, MLA 9 wants: *Title*. *YouTube*, uploaded by [channel], [date], [URL].
+For YouTube, MLA needs: *Title*. Channel, date, URL.
 
 ### Page 20 (right)
 
 **Audio & links**
 
-Narration is your ElevenLabs recording (River voice) from Jumpshare—stream it below or open the share link if playback fails. The script text is still here for captions or a reshoot. Drag sticky notes on earlier pages; positions save in this browser.
+You'll find your ElevenLabs narration (River voice) from Jumpshare—stream or use the share link if needed. The script is here for captions or rerecording. Stickies can be dragged and they'll stay put in your browser.
 
 **Buttons:** Play narration · Stop · Copy script  
 **Details heading:** Full narration script (for recording)
@@ -407,8 +414,8 @@ Narration is your ElevenLabs recording (River voice) from Jumpshare—stream it 
 - *Washington Post* review
 - Open Library
 
-**Fore-edge hint (left):** YouTube embeds still need MLA: channel, date, stable URL.  
-**Fore-edge hint (right):** Record your own voice over this script for full credit—listeners forgive robots less than teachers do.
+**Fore-edge hint (left):** Credit every YouTube embed using MLA: channel, date, stable URL.  
+**Fore-edge hint (right):** Record your own narration for full credit—teachers are more forgiving about slight mistakes than robotic voices.
 
 ---
 
@@ -487,14 +494,15 @@ Alfred A. Knopf · New York · 2017
 **Panel title:** Feminist readings of *American War*  
 **Button:** Close
 
-**Heading block**
-- Student Name
-- Professor Name
-- Course Number
+### Heading block *(updated)*
+
+- Dekai Li
+- Haughton, Sheleah
+- ENG4U1-21
 - 15 May 2026
 - **Paper title:** Mothers, Monsters, and Archives: Gender, Violence, and Voice in Omar El Akkad's *American War*
 
-**Essay body**
+### Essay body *(original academic tone — not humanized)*
 
 Omar El Akkad's *American War* is not “about” gender in the thin sense of occasional female characters; it is built from the feminist insight that modern war is assembled in kitchens, checkpoints, and refugee queues long before it is assembled in generals' maps. By centering Sarat Chestnut—girl, daughter, sister, and eventually a figure the nation cannot decide whether to mourn or monster—El Akkad forces readers to ask who is permitted vulnerability, whose rage is treated as politics, and whose body becomes a public screen for other people's ideologies (Enloe).
 
@@ -518,7 +526,7 @@ The preserved diary fragment—“she was happy then”—functions as a feminis
 
 None of this analysis requires excusing Sarat's acts. Rather, it clarifies what a feminist paper can argue with rigor: that *American War* links climate crisis, civil war, and imperial gamesmanship through gendered pathways—through mothers who cannot shield daughters, through mentors who translate grief into doctrine, through narrators who decide which pages survive, and through a nation that learns to call a girl a weapon because it never learned to call her a citizen. El Akkad's speculative reversal matters, finally, because it makes those pathways visible on American soil—where they were always already present.
 
-**Essay Works Cited**
+### Essay Works Cited
 
 Butler, Judith. *Gender Trouble: Feminism and the Subversion of Identity*. Routledge, 1990.
 
@@ -532,7 +540,7 @@ Rizqa, Hasanul. “Wounds and Words: The Traumatic Memory in Omar El Akkad's Dys
 
 ---
 
-## Narration script (audio page + Jumpshare recording)
+## Narration script *(not yet humanized — still in script.js)*
 
 American War desk folio — narration script
 
