@@ -476,37 +476,26 @@ window.addEventListener("mousemove", (event) => {
   shell.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 });
 
-const NARRATION_FULL = `American War desk folio — narration script
+const NARRATION_FULL = `AMERICAN WAR — DESK FOLIO NARRATION
+Record in your own voice · ~3½ minutes · Dekai Li · ENG4U1-21
 
-Welcome. You are holding a paper-style scrapbook about Omar El Akkad's novel American War. Open the cover, then move through spreads with a click on the right page to go forward, or the left page to go back. Arrow keys do the same. The table of contents jumps instantly to any section.
+Hi, I'm Dekai Li, and this is my interactive website for Omar El Akkad's novel American War.
 
-Front matter. This edition pairs summaries, character studies, media, and MLA citations with a full feminist reading you can open as a separate sheet from the round button on the title page.
+You're looking at a digital scrapbook. Click the cover to open it, then tap the right page—or use the arrow keys—to move forward. The table of contents on page two lets you jump straight to any section. Sticky notes on the pages are my reading notes; you can drag them around.
 
-Summary. In a splintered United States gutted by climate failure and a second civil war, the story tracks Sarat Chestnut from a half-drowned Louisiana childhood into the disciplined cruelty of Camp Patience, and beyond into the mythology of retribution. El Akkad treats speculative fiction as a forensic lens.
+So what's the book about? America is fractured—climate disasters everywhere, and a brutal second civil war pulling the country apart. The story follows Sarat Chestnut. She grows up in a Louisiana that's almost underwater, lands in a camp called Camp Patience, and learns how survival and revenge get tangled together.
 
-Stakes. Each relocation tightens the Chestnut family's choices. Mentors speak softly because they know volume is unnecessary when a child is already listening for orders. The novel asks whether revenge can ever be hygienic once it becomes a civic style.
+El Akkad doesn't just invent a future. He takes real patterns we already know—drones, ration lines, waiting in line for water—and sets them on American soil, from about twenty seventy-four to twenty ninety-five. The North bans fossil fuels. The South won't let go. You don't get big battle scenes. You get cramped rooms, tired people, and nervous conversations.
 
-Climate and remote war. Climate grief is plot, not backdrop. Drones, checkpoints, and rumor networks translate occupation grammar into a domestic key readers still recognize.
+One line that stuck with me: when your country asks you to kill for it, your only question should be how high. The book never gives a clean answer about revenge. It just shows you what happens when a whole country treats payback like routine.
 
-Camps and revenge. Camps compress time: boredom becomes radicalization fuel; kindness becomes a ledger. The ethical spine is brutal: violence mortgages the next generation's peace.
+Climate isn't background here—it's the engine. Who gets a dry house, who gets asthma from mold, who gets erased when the coast moves inland? When systems fail, the work of staying alive lands on families, and especially on women. Camps make everything worse. Waiting becomes politics. Boredom turns into anger. Sarat can't stop watching how power works.
 
-Thesis spread. A strong feminist argument links climate crisis, civil war, and imperial gamesmanship through gendered pathways—mothers who cannot shield daughters, mentors who translate grief into doctrine, narrators who decide which pages survive.
+My thesis spread argues that El Akkad uses Sarat to ask feminist questions that aren't extra—they're central. Whose bodies count as civilian? Whose anger makes sense? Who gets to tell the story? Martina, Sarat's mother, gives care without doctrine. Albert Gaines, her mentor, gives doctrine dressed up as care. When Martina is gone, recruitment gets easier.
 
-Author. Omar El Akkad is an Egyptian-Canadian novelist and journalist. His reporting from conflict zones informs the tactile credibility of the novel—the way checkpoints smell, how official language softens murder.
+There's a full feminist essay you can open from the button on the title page—my MLA paper for this unit. You'll also find author biography, character pages, a publisher video, curated links, and a Works Cited section so every image and clip is cited.
 
-Characters one — Sarat and Benjamin. Sarat is the protagonist: fierce curiosity weaponized by mentors. Benjamin is brother and foil, carrying the family's hope for repair.
-
-Characters two — Martina and Albert Gaines. Martina is the novel's clearest case of maternal labor as politics: she rations calories, manages fear, and refuses to let her family be conscripted into someone else's war. Her loss removes the buffer between Sarat and recruitment.
-
-Albert Gaines is the calm male teacher archetype who tells a grieving girl that the world makes sense if she will only follow him into the next room. His pedagogy looks like attention; it is recruitment. The novel does not flatten him into villainy—he believes what he is saying, which is what makes it dangerous. Gaines is Martina's ideological opposite: she gives care without doctrine; he gives doctrine dressed up as care.
-
-Motifs and discussion. Trace water, documents, borders, and names. Ask where the novel refuses reader comfort on purpose, and who is allowed moral complexity.
-
-Media and links. Use the publisher video for class context, cite interviews and reviews in MLA 9, and cite the narration file alongside your other media sources.
-
-Works cited. Everything here is meant to sit beside the images it explains—hanging indents, containers, stable URLs.
-
-Closing. When you close the folio, you step away from the argument—but not from the questions it plants about whose bodies count as civilian, whose anger is legible, and who gets to tell the story. Thank you for listening.`;
+Flip to the back when you're done, or tap the left edge to close the book. Thanks for listening—and for reading American War with me.`;
 
 const narrationPre = document.getElementById("narrationScriptPre");
 const copyNarrationBtn = document.getElementById("copyNarration");
@@ -587,7 +576,7 @@ const EDGE_HINT_PAIRS = [
   { L: "Sarat shortens her name before the world finishes it, staking out her own space.", R: "Benjamin's arc makes her decisions stand out—watch who really gets to fix things." },
   { L: "Watch the moment when Martina exits the stage—that opens the space for doctrine.", R: "Gaines believes his own message, and that's exactly why Sarat is persuaded." },
   { L: "Every flood, every crossing—if you mark those, you'll see how water keeps the book's emotional rhythm.", R: "Pick whichever prompt challenges you most." },
-  { L: "Credit every YouTube embed using MLA: channel, date, stable URL.", R: "Record your own narration for full credit—teachers are more forgiving about slight mistakes than robotic voices." },
+  { L: "Credit every YouTube embed using MLA: channel, date, stable URL.", R: "Record the script on this page in your own voice—that's the ISP audio requirement." },
   { L: "Hanging indent half an inch—your professor will notice if you fake it.", R: "LOC portraits are cited prompts, not casting calls—say that once in your paper." },
 ];
 

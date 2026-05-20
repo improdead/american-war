@@ -583,14 +583,17 @@
                     <span class="page-num">20</span>
                   </div>
                   <div class="media-block">
-                    <p>
-                      You&rsquo;ll find desk narration on this spread. For full ISP credit, replace the
-                      placeholder track with <strong>your own voice</strong> (save as
-                      <code>assets/narration.mp3</code> in this project, or update the audio link below).
-                      The current fallback is an ElevenLabs draft on
-                      <a href="https://jumpshare.com/share/bWgwMpCMTmEXQohKvsoG" target="_blank" rel="noreferrer">Jumpshare</a>.
-                      Script below for recording. Stickies can be dragged and they&rsquo;ll stay put in this browser.
+                    <p class="narration-isp-note">
+                      <strong>ISP audio requirement:</strong> Record the script below <em>in your own voice</em>
+                      (~3½ min). Save the file as <code>assets/narration.mp3</code> and push to GitHub—the
+                      player below uses your recording first. The Jumpshare link is only a backup draft.
                     </p>
+                    <ol class="narration-steps">
+                      <li>Copy or read the script in the box below.</li>
+                      <li>Record on your phone or laptop (Voice Memos, Zoom, etc.).</li>
+                      <li>Export as MP3 → name it <code>narration.mp3</code> → put it in the <code>assets/</code> folder.</li>
+                      <li>Refresh this page and press Play to test.</li>
+                    </ol>
                     <audio
                       id="narrationAudio"
                       class="narration-audio"
@@ -609,8 +612,8 @@
                       <button type="button" id="stopNarration">Stop</button>
                       <button type="button" id="copyNarration">Copy script</button>
                     </div>
-                    <details class="narration-script-details">
-                      <summary>Full narration script (for recording)</summary>
+                    <details class="narration-script-details" open>
+                      <summary>Full narration script — read this in your own voice</summary>
                       <pre class="narration-script" id="narrationScriptPre"></pre>
                     </details>
                   </div>
@@ -706,8 +709,8 @@
                       commons.wikimedia.org/wiki/File:2016_Louisiana_Flood_-_10.jpg. CC BY 2.0.
                     </p>
                     <p>
-                      Li, Dekai. <em>American War Desk Folio Narration</em>. May 2026. <em>Jumpshare</em>,
-                      jumpshare.com/share/bWgwMpCMTmEXQohKvsoG. (Replace with your own-voice recording and update this entry.)
+                      Li, Dekai. &ldquo;American War Desk Folio: Narration.&rdquo; May 2026. MP3 file.
+                      <em>American War Desk Edition</em> website.
                     </p>
                     <p>
                       <em>Knopf Doubleday: American War — Omar El Akkad</em>. <em>YouTube</em>,
