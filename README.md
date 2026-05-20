@@ -29,16 +29,12 @@ Submit that live URL to your teacher if required.
 | Works Cited (all media) | ✅ Spreads 21–22 |
 | Good design / multimedia | ✅ Interactive book, stickers, hints, page flip |
 
-## Record your audio (ISP requirement)
+## Before you submit
 
-1. Open **`assets/narration-script.txt`** or the script on **page 20** of the book.
-2. Read it **in your own voice** (~3½ minutes). Start with “Hi, I'm Dekai Li…” so the marker knows it's you.
-3. Save as **`assets/narration.mp3`** and push to GitHub.
-4. Test: open the site → page 20 → Play.
-
-Works Cited entry (already on page 22):
-
-> Li, Dekai. "American War Desk Folio: Narration." May 2026. MP3 file. *American War Desk Edition* website.
+- [ ] Record **your own voice** over the script on p. 20 → save as `assets/narration.mp3`
+- [ ] Update Works Cited if your audio host URL changes
+- [ ] Confirm GitHub Pages (or local) loads: cover opens, audio plays, video embeds
+- [ ] Share live link with Professor Haughton
 
 ## Files
 
